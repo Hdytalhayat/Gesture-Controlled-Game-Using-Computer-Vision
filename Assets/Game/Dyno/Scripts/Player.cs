@@ -10,9 +10,11 @@ public class Player : MonoBehaviour
     public float jumpForce = 8f;
     public float gravity = 9.81f * 2f;
 
+    //DataHandle
     UDPReceive uDPReceive;
     string data;
     string[] points;
+
     private void Awake()
     {
         uDPReceive = GetComponent<UDPReceive>();
