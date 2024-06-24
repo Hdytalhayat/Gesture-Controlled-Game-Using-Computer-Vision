@@ -275,13 +275,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 148270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9858e057bc9a8147b8f9f002a4602cc, type: 3}
+  m_Script: {fileID: 11500000, guid: b5fd55ecaadca6142870f06d75efc3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   port: 1209
   startRecieving: 1
   printToConsole: 0
-  data: '[False, False]'
+  data: '[False, False, [0, 0]]'
 --- !u!1 &151625049
 GameObject:
   m_ObjectHideFlags: 0
