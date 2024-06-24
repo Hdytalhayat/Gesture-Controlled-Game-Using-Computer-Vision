@@ -776,9 +776,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   port: 1209
-  startRecieving: 1
+  startReceiving: 1
   printToConsole: 0
-  data: 
+  data: '[False, False, [0, 0]]'
 --- !u!1 &765433179
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,45 +1,46 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using Unity.VisualScripting;
 
 public class UDPReceive : MonoBehaviour
 {
-
-    Thread receiveThread;
-    UdpClient client; 
+    private Thread receiveThread;
+    private UdpClient client;
     public int port = 1209;
-    public bool startRecieving = true;
+    public bool startReceiving = true;
     public bool printToConsole = false;
     public string data;
-    public void Start()
-    {
 
-        receiveThread = new Thread(
-            new ThreadStart(ReceiveData));
+    void Start()
+    {
+        receiveThread = new Thread(new ThreadStart(ReceiveData));
         receiveThread.IsBackground = true;
         receiveThread.Start();
     }
 
-    // receive thread
+    void OnDestroy()
+    {
+        CloseSocket();
+    }
+
     private void ReceiveData()
     {
-
         client = new UdpClient(port);
-        while (startRecieving)
+        while (startReceiving)
         {
-
             try
             {
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] dataByte = client.Receive(ref anyIP);
                 data = Encoding.UTF8.GetString(dataByte);
 
-                if (printToConsole) { print(data); }
+                if (printToConsole)
+                {
+                    print(data);
+                }
             }
             catch (Exception err)
             {
@@ -48,4 +49,18 @@ public class UDPReceive : MonoBehaviour
         }
     }
 
+    private void CloseSocket()
+    {
+        if (client != null)
+        {
+            client.Close();
+            client = null;
+        }
+
+        if (receiveThread != null)
+        {
+            receiveThread.Abort();
+            receiveThread = null;
+        }
+    }
 }
