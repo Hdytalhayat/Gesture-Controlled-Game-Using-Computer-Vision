@@ -13,18 +13,12 @@ public class Player_Cam : MonoBehaviour
     bool timeRemaining;
     public Slider sensiSlider;
 
-    UDPReceive uDPReceive;
-    string data;
-    string[] points;
-
 
     // Start is called before the first frame update
 
     private void Start()
     {
 
-        uDPReceive = GetComponent<UDPReceive>();
-        data = uDPReceive.data;
 
         if (PlayerPrefs.HasKey("Sensitivity"))
         {
@@ -47,7 +41,6 @@ public class Player_Cam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DataHandle();
 
         if (timeRemaining)
         {
@@ -61,15 +54,6 @@ public class Player_Cam : MonoBehaviour
         }
     }
 
-    private void DataHandle()
-    {
-        data = uDPReceive.data;
-        // Remove the first and last character
-        data = data.Remove(0, 1);
-        data = data.Remove(data.Length - 1, 1);
-        points = data.Split(", ");
-        // print(points[0]+""+ points[1]); // Print the first point for debugging
-    }
 
     void onTimeFinished()
     {

@@ -21,9 +21,19 @@ public class Menu_Script : MonoBehaviour
     bool isPlayable;
     public TMP_Dropdown timeSetter;
 
+    public GameObject GameHandler;
+
+    UDPReceive uDPReceive;
+    string data;
+    string[] points;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        uDPReceive = GameHandler.GetComponent<UDPReceive>();
+        data = uDPReceive.data;
+
         Time.timeScale = 0f;
         GameObject.Find("GameHandler").GetComponent<Timer_Script>().on_Time_finished += onTimeFinished;
         timer = GameObject.Find("GameHandler").GetComponent<Timer_Script>();
@@ -33,12 +43,14 @@ public class Menu_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !isPlayable)
+        DataHandle();
+
+        if (Input.GetButtonDown("Fire1") || points[1] == "True" && !isPlayable)
         {
             Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || points[0] == "True")
         {
             if (mainMenuUI.activeSelf == false && gameEndMenuUI.activeSelf == false && optionMenuUI.activeSelf == false)
             {
@@ -64,6 +76,16 @@ public class Menu_Script : MonoBehaviour
             Time.timeScale = .3f;
         if (Input.GetKeyDown(KeyCode.C))
             Time.timeScale = 1;
+    }
+
+    private void DataHandle()
+    {
+        data = uDPReceive.data;
+        // Remove the first and last character
+        data = data.Remove(0, 1);
+        data = data.Remove(data.Length - 1, 1);
+        points = data.Split(", ");
+        // print(points[0]+""+ points[1]); // Print the first point for debugging
     }
 
     public void resume()

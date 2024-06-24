@@ -8,10 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/HandDetector.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Game/Scenes/Game.unity
+  - enabled: 0
+    path: Assets/Game/Dyno/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 94785d141ec0d64488f227ecbae850ae
+  - enabled: 1
+    path: Assets/Game/AimLab/Scenes/NormalMode.unity
+    guid: 4970587f676e62141922f716254b86d3
+  - enabled: 1
+    path: Assets/Game/AimLab/Scenes/GridShot.unity
+    guid: fa9e051ca5202074e91c3b3f8a3d6c39
   m_configObjects: {}
