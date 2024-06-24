@@ -27,6 +27,8 @@ public class Gun_Script : MonoBehaviour
     public static float totalBulletShoot;
     public static float totalBulletHitTarget;
 
+    public GameObject GameHandler;
+
     UDPReceive uDPReceive;
     string data;
     string[] points;
@@ -35,7 +37,7 @@ public class Gun_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uDPReceive = GetComponent<UDPReceive>();
+        uDPReceive = GameHandler.GetComponent<UDPReceive>();
         data = uDPReceive.data;
         //Cursor.lockState = CursorLockMode.Locked;
 

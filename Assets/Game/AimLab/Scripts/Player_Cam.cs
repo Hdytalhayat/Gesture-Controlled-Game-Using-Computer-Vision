@@ -19,6 +19,7 @@ public class Player_Cam : MonoBehaviour
     private void Start()
     {
 
+
         if (PlayerPrefs.HasKey("Sensitivity"))
         {
             loadSensi();
@@ -53,7 +54,6 @@ public class Player_Cam : MonoBehaviour
         }
     }
 
-    
 
     void onTimeFinished()
     {
