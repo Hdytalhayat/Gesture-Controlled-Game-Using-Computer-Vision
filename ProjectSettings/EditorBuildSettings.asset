@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/HandDetector.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/MainMenuUtama.unity
     guid: 94785d141ec0d64488f227ecbae850ae
   - enabled: 1
     path: Assets/Game/Dyno/Scenes/Game.unity
