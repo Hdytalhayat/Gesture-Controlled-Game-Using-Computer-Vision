@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   port: 1209
-  startRecieving: 1
+  startReceiving: 1
   printToConsole: 0
   data: '[False, False, [0, 0]]'
 --- !u!1 &125474942
@@ -334,8 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdca1b1541470074b96477218c34926d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetPositionX: 0
-  startPositionX: 1
 --- !u!212 &125474945
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -385,7 +383,7 @@ SpriteRenderer:
   m_Size: {x: 22.4, y: 3.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &125474946
@@ -1295,7 +1293,7 @@ SpriteRenderer:
   m_Size: {x: 22.4, y: 3.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1320166295
@@ -1408,7 +1406,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1501353567}
   - component: {fileID: 1501353566}
-  - component: {fileID: 1501353568}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1450,18 +1447,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1501353568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501353565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f9e3b0c7bd868409d855bd634357b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1804594923
 GameObject:
   m_ObjectHideFlags: 0
