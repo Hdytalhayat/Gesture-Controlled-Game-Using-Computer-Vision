@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI hiscoreText;
     [SerializeField] private TextMeshProUGUI gameOverText;
-    [SerializeField] private Button retryButton;
-    [SerializeField] private Button homeButton;
+    [SerializeField] private GameObject Menus;
 
     private Player player;
     private Spawner spawner;
@@ -63,9 +62,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         spawner.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(false);
-        retryButton.gameObject.SetActive(false);
-        homeButton.gameObject.SetActive(false);
-        homeButton.onClick.AddListener(HomeBut);
+        Menus.SetActive(false);
         UpdateHiscore();
     }
 
@@ -77,8 +74,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
-        retryButton.gameObject.SetActive(true);
-        homeButton.gameObject.SetActive(true);
+        Menus.SetActive(true);
 
         UpdateHiscore();
     }
@@ -101,10 +97,5 @@ public class GameManager : MonoBehaviour
         }
 
         hiscoreText.text = Mathf.FloorToInt(hiscore).ToString("D5");
-    }
-
-    void HomeBut()
-    {
-        SceneManager.LoadScene("MainMenuUtama");
     }
 }
