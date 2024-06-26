@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Ground : MonoBehaviour
 {
-    private MeshRenderer meshRenderer;
+    private SpriteRenderer meshRenderer;
 
     private void Awake()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
