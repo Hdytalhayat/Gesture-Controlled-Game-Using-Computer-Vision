@@ -14,6 +14,10 @@ public class MenusController : MonoBehaviour
         retryButton.onClick.AddListener(OnClickRetry);
         homeButton.onClick.AddListener(OnClickHome);
     }
+    public void Update()
+    {
+        
+    }
     private void OnClickRetry()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -22,7 +26,7 @@ public class MenusController : MonoBehaviour
     }
     private void OnClickHome()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
