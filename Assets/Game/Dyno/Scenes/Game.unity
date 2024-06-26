@@ -152,13 +152,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148270}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -5.246, y: 0.197, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &148274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1f2a5d74b2ac30840a4c4ea147df8870, type: 3}
+  m_Sprite: {fileID: -1968186204, guid: c0adb068eab3a0049a04fd6334a09102, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 064aaba8b5d6cb14b9c225488d79d3df, type: 3}
-  - {fileID: 21300000, guid: 26968819a7a37a8478b0fa4cb686f35f, type: 3}
+  - {fileID: -914577509, guid: c0adb068eab3a0049a04fd6334a09102, type: 3}
+  - {fileID: 1692266439, guid: c0adb068eab3a0049a04fd6334a09102, type: 3}
 --- !u!143 &148278
 CharacterController:
   m_ObjectHideFlags: 0
@@ -259,8 +259,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 4.24
-  m_Radius: 1.17
+  m_Height: 5.42
+  m_Radius: 2.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1228,7 +1228,6 @@ MonoBehaviour:
   gameOverText: {fileID: 1081033933}
   retryButton: {fileID: 1417875464}
   homeButton: {fileID: 2074438792}
-  playerObject: {fileID: 148270}
 --- !u!4 &1501353567
 Transform:
   m_ObjectHideFlags: 0
