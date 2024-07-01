@@ -17,7 +17,7 @@ public class FlappyScript : MonoBehaviour
     public AudioClip FlyAudioClip, DeathAudioClip, ScoredAudioClip;
     public Sprite GetReadySprite;
     public float RotateUpSpeed = 1, RotateDownSpeed = 1;
-    public GameObject IntroGUI, DeathGUI;
+    public GameObject IntroGUI, Menus;
     public Collider2D restartButtonGameCollider;
     public float VelocityPerJump = 3;
     public float XSpeed = 1;
@@ -50,6 +50,7 @@ public class FlappyScript : MonoBehaviour
 
         if (GameStateManager.GameState == GameState.Intro)
         {
+            Menus.SetActive(false);
             MoveBirdOnXAxis();
             if (WasTouchedOrClicked())
             {
@@ -61,6 +62,7 @@ public class FlappyScript : MonoBehaviour
         }
         else if (GameStateManager.GameState == GameState.Playing)
         {
+            Menus.SetActive(false);
             MoveBirdOnXAxis();
             if (WasTouchedOrClicked())
             {
@@ -69,19 +71,21 @@ public class FlappyScript : MonoBehaviour
         }
         else if (GameStateManager.GameState == GameState.Dead)
         {
+            Menus.SetActive(true);
+
             Vector2 contactPoint = Vector2.zero;
 
-            if (Input.touchCount > 0)
-                contactPoint = Input.touches[0].position;
-            if (Input.GetMouseButtonDown(0))
-                contactPoint = Input.mousePosition;
+            // if (Input.touchCount > 0)
+            //     contactPoint = Input.touches[0].position;
+            // if (Input.GetMouseButtonDown(0))
+            //     contactPoint = Input.mousePosition;
 
             // Check if user wants to restart the game
-            if (restartButtonGameCollider == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(contactPoint)))
-            {
-                GameStateManager.GameState = GameState.Intro;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            // if (restartButtonGameCollider == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(contactPoint)))
+            // {
+            //     GameStateManager.GameState = GameState.Intro;
+            //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // }
         }
     }
 
@@ -102,8 +106,7 @@ public class FlappyScript : MonoBehaviour
 
     bool WasTouchedOrClicked()
     {
-        return points.Length > 1 && points[1] == "True" || Input.GetButtonUp("Jump") || Input.GetMouseButtonDown(0) || 
-            (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended);
+        return points.Length > 1 && points[1] == "True" || Input.GetButtonUp("Jump");
     }
 
     private void DataHandle()
@@ -198,7 +201,7 @@ public class FlappyScript : MonoBehaviour
     void FlappyDies()
     {
         GameStateManager.GameState = GameState.Dead;
-        DeathGUI.SetActive(true);
+        Menus.SetActive(true);
         GetComponent<AudioSource>().PlayOneShot(DeathAudioClip);
     }
 }
