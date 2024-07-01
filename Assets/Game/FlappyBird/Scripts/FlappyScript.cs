@@ -106,7 +106,7 @@ public class FlappyScript : MonoBehaviour
 
     bool WasTouchedOrClicked()
     {
-        return points.Length > 1 && points[1] == "True" || Input.GetButtonUp("Jump");
+        return Input.GetButtonUp("Jump");
     }
 
     private void DataHandle()

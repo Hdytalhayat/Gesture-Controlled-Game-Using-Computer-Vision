@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
         buttonDyno.onClick.AddListener(DynoS);
         buttonFlappy.onClick.AddListener(Flappy);
         buttonAim.onClick.AddListener(Aims);
+        buttonDyno.Select();
     }
 
     private void DynoS()
@@ -30,7 +31,7 @@ public class MainMenu : MonoBehaviour
 
     private void Aims()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("NormalMode");
     }
 
     private void Quit()
@@ -41,6 +42,19 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.Z) )
+        {
+            DynoS();
+        }
 
+        if(Input.GetKey(KeyCode.X))
+        {
+            Flappy();
+        }
+        
+        if(Input.GetKey(KeyCode.C))
+        {
+            Aims(); 
+        }
     }
 }

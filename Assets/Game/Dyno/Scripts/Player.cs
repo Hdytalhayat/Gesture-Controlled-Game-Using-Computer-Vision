@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         {
             direction = Vector3.down;
 
-            if (points[1] == "True") {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 direction = Vector3.up * jumpForce;
             }
         }
