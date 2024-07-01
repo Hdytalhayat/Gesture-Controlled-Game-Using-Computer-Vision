@@ -56,7 +56,7 @@ public class Gun_Script : MonoBehaviour
             {
                 if (!Menu_Script.gameIsPaused)
                 {
-                    if (Input.GetButtonDown("Fire1") || points[1] == "True")
+                    if (Input.GetButtonDown("Fire1"))
                     {
                         totalBulletShoot++;
                         StartCoroutine("shoot");

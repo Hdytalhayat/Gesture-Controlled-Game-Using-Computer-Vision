@@ -45,12 +45,12 @@ public class Menu_Script : MonoBehaviour
     {
         DataHandle();
 
-        if (Input.GetButtonDown("Fire1") || points[1] == "True" && !isPlayable)
+        if (Input.GetButtonDown("Fire1") && !isPlayable)
         {
             Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) || points[0] == "True")
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (mainMenuUI.activeSelf == false && gameEndMenuUI.activeSelf == false && optionMenuUI.activeSelf == false)
             {
