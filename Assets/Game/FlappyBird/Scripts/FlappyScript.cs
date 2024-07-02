@@ -52,7 +52,7 @@ public class FlappyScript : MonoBehaviour
         {
             Menus.SetActive(false);
             MoveBirdOnXAxis();
-            if (WasTouchedOrClicked())
+            if (WasTouchedOrClicked() || points[1] == "True")
             {
                 BoostOnYAxis();
                 GameStateManager.GameState = GameState.Playing;
@@ -64,7 +64,7 @@ public class FlappyScript : MonoBehaviour
         {
             Menus.SetActive(false);
             MoveBirdOnXAxis();
-            if (WasTouchedOrClicked())
+            if (WasTouchedOrClicked() || points[1] == "True")
             {
                 BoostOnYAxis();
             }

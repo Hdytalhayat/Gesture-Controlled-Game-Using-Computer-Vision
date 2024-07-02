@@ -45,7 +45,7 @@ public class Menu_Script : MonoBehaviour
     {
         DataHandle();
 
-        if (Input.GetButtonDown("Fire1") && !isPlayable)
+        if (Input.GetButtonDown("Fire1") || points[1] == "True"  && !isPlayable)
         {
             Play();
         }
