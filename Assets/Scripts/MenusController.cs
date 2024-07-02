@@ -26,7 +26,7 @@ public class MenusController : MonoBehaviour
     }
     private void OnClickHome()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenuUtama");
     }
 
 }

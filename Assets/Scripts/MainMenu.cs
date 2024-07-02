@@ -12,6 +12,9 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         SelectButton(selectedButtonIndex);
+        buttons[0].onClick.AddListener(DynoS);
+        // buttons[1].onClick.AddListener(Flappy);
+        // buttons[2].onClick.AddListener(Aims);
     }
 
     private void DynoS()
@@ -37,26 +40,13 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Z) )
-        {
-            DynoS();
-        }
-
-        if(Input.GetKey(KeyCode.X))
-        {
-            Flappy();
-        }
         
-        if(Input.GetKey(KeyCode.C))
-        {
-            Aims(); 
-        }
         // Mendeteksi input dari keyboard untuk mengubah pemilihan tombol
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             ChangeSelectedButton(-1); // Pilih tombol sebelumnya
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             ChangeSelectedButton(1); // Pilih tombol berikutnya
         }
