@@ -52,11 +52,11 @@ public class MainMenu : MonoBehaviour
             Aims(); 
         }
         // Mendeteksi input dari keyboard untuk mengubah pemilihan tombol
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             ChangeSelectedButton(-1); // Pilih tombol sebelumnya
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             ChangeSelectedButton(1); // Pilih tombol berikutnya
         }
