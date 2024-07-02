@@ -8,15 +8,14 @@ public class MainMenu : MonoBehaviour
 
     public Button[] buttons;
     private int selectedButtonIndex = 0;
+    private TesJarak tesJarak;
     // Start is called before the first frame update
     void Start()
     {
         SelectButton(selectedButtonIndex);
-        buttons[0].onClick.AddListener(DynoS);
-        // buttons[1].onClick.AddListener(Flappy);
-        // buttons[2].onClick.AddListener(Aims);
+        tesJarak = GetComponent<TesJarak>();
     }
-
+    
     private void DynoS()
     {
         SceneManager.LoadScene("Game");
@@ -41,7 +40,14 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
-        // Mendeteksi input dari keyboard untuk mengubah pemilihan tombol
+        if(tesJarak.IsValid)
+        {
+            buttons[0].onClick.AddListener(DynoS);
+            // buttons[1].onClick.AddListener(Flappy);
+            // buttons[2].onClick.AddListener(Aims);
+            // Mendeteksi input dari keyboard untuk mengubah pemilihan tombol
+
+        }
         if (Input.GetKeyDown(KeyCode.W))
         {
             ChangeSelectedButton(-1); // Pilih tombol sebelumnya

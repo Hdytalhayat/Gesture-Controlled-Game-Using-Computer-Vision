@@ -15,6 +15,7 @@ public class TesJarak : MonoBehaviour
     string points1;
     string points2;
     public TextMeshProUGUI textJarak;
+    public bool IsValid;
 
 
     // Start is called before the first frame update
@@ -30,24 +31,28 @@ public class TesJarak : MonoBehaviour
     void Update()
     {
         DataHandle();
-
+        Debug.Log(IsValid);
         int faceDistance = int.Parse(points[4]);
         int faceLost = int.Parse(points1);
     
         if(faceDistance > 75 && faceLost > 0)
         {
             textJarak.text = " Anda terlalu jauh ";
+            IsValid = false;
         }
         else if (faceDistance < 40 && faceLost > 0)
         {
+            IsValid = false;
             textJarak.text = " Anda terlalu dekat ";
         }
         else if (faceLost == 0)
         {
+            IsValid = false;
             textJarak.text = " Wajah Anda Hilang";
         }
         else
         {
+            IsValid = true;
             textJarak.text = " ";
         }
 
