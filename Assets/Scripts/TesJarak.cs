@@ -16,6 +16,7 @@ public class TesJarak : MonoBehaviour
     string points2;
     public TextMeshProUGUI textJarak;
 
+
     // Start is called before the first frame update
     void Start()
     {
