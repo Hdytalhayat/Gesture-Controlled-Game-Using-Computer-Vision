@@ -1,0 +1,33 @@
+private Dictionary<KeyCode, bool> keyStates = new Dictionary<KeyCode, bool>();
+
+    void Start()
+    {
+        // Initialize the dictionary with the keys we want to monitor
+        keyStates[KeyCode.W] = false;
+        keyStates[KeyCode.A] = false;
+        keyStates[KeyCode.S] = false;
+        keyStates[KeyCode.D] = false;
+        // Add more keys as needed
+    }
+
+    void Update()
+    {
+        // Update the state of each key
+        foreach (KeyCode key in keyStates.Keys)
+        {
+            keyStates[key] = Input.GetKey(key);
+        }
+
+        // Check combinations of keys
+        if (keyStates[KeyCode.W] && keyStates[KeyCode.A])
+        {
+            Debug.Log("W and A are pressed together");
+        }
+
+        if (keyStates[KeyCode.W] && keyStates[KeyCode.D])
+        {
+            Debug.Log("W and D are pressed together");
+        }
+
+        // Add more combinations as needed
+    }
