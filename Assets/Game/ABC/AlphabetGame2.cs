@@ -66,6 +66,7 @@ public class AlphabetGame2 : MonoBehaviour
             currentLetter = (char)('A' + Random.Range(0, 26));
             letterText.text = currentLetter.ToString();
             canScore = true; // Reset scoring ability for the new letter
+            letterText.color = Color.white;
 
         }
     }
