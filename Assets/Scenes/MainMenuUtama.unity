@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 14308887}
   - component: {fileID: 14308886}
   m_Layer: 5
-  m_Name: BirdiButton
+  m_Name: SupperButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Birdi
+  m_text: Supper
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17b482b27989b2e42ba2cc9a5969d05a, type: 2}
   m_sharedMaterial: {fileID: -2306084977459795861, guid: 17b482b27989b2e42ba2cc9a5969d05a, type: 2}
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   port: 1209
   startReceiving: 1
   printToConsole: 0
-  data: '[False, False, [0, 0], 0, 0, 0]'
+  data: '[False, False, [0, 0], 0, 0, 0, 0, 0, False, False]'
 --- !u!114 &1376913258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,6 +1082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 1376913249}
   textJarak: {fileID: 901369310}
+  IsValid: 0
 --- !u!1 &1413745811
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,8 +12,21 @@ public class MainMenu : MonoBehaviour
     private int selectedButtonIndex = 0;
     private TesJarak tesJarak;
     // Start is called before the first frame update
+
+    UDPReceive uDPReceive;
+    string data;
+    string[] points;
+
+    //int delay = 60;
+
+    public float delay = 2000f;
+    int count = 0;
+
+
     void Start()
     {
+        uDPReceive = GetComponent<UDPReceive>();
+        data = uDPReceive.data;
         SelectButton(selectedButtonIndex);
         tesJarak = GetComponent<TesJarak>();
     }
@@ -21,9 +36,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-    private void Flappy()
+    private void Supper()
     {
-        SceneManager.LoadScene("mainGame");
+        SceneManager.LoadScene("Superman");
     }
 
     private void Aims()
@@ -39,25 +54,57 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(tesJarak.IsValid)
+        DataHandle();
+        if (tesJarak.IsValid)
         {
             buttons[0].onClick.AddListener(DynoS);
-            // buttons[1].onClick.AddListener(Flappy);
+            buttons[1].onClick.AddListener(Supper);
             // buttons[2].onClick.AddListener(Aims);
             // Mendeteksi input dari keyboard untuk mengubah pemilihan tombol
 
         }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            ChangeSelectedButton(-1); // Pilih tombol sebelumnya
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            ChangeSelectedButton(1); // Pilih tombol berikutnya
-        }
 
+        if (points[9] == "True")
+        {
+            count++;
+            Debug.Log("UP");
+            if(count == 1)
+            {
+                ChangeSelectedButton(-1); // Pilih tombol sebelumnya
+                
+            }
+            
+        }
+        else if (points[10] == "True")
+        {
+            count++;
+            Debug.Log("DOWN");
+            if(count == 1)
+            {
+                ChangeSelectedButton(1); // Pilih tombol berikutnya
+            }
+        }
+        ResetCount();
+        Debug.Log(count);
     }
+    IEnumerator ResetCount()
+    {
+        yield return new WaitForSeconds(1);
+        if(count != 0)
+        {
+            count = 0;
+        }
+    }
+    private void DataHandle()
+    {
+        data = uDPReceive.data;
+        // Remove the first and last character
+        data = data.Remove(0, 1);
+        data = data.Remove(data.Length - 1, 1);
+        points = data.Split(", ");
+        // print(points[0]+""+ points[1]); // Print the first point for debugging
+    }
+
     void ChangeSelectedButton(int direction)
     {
         // Menentukan indeks baru berdasarkan arah perubahan pemilihan (1 untuk ke bawah, -1 untuk ke atas)

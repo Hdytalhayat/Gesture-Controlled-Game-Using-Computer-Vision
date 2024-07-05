@@ -17,6 +17,7 @@ public class TesJarak : MonoBehaviour
     public TextMeshProUGUI textJarak;
     public bool IsValid;
 
+
     // Start is called before the first frame update
     void Start()
     {
