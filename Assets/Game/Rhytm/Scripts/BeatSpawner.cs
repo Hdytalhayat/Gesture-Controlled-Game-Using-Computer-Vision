@@ -8,6 +8,11 @@ public class BeatSpawner : MonoBehaviour
     public float beatTempo;
     public GameObject[] spawnableObject;
     private float nextSpawnTime;
+    private float spawnInterval = 2f;
+    private float movementSpeedMultiplier = 1f;
+    private float spawnRateMultiplier = 1f;
+    private float timeElapsed = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +23,19 @@ public class BeatSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed > 10f) // adjust this value to control the rate of increase
+        {
+            movementSpeedMultiplier = Mathf.Min(movementSpeedMultiplier + 0.1f, 2.5f);
+            spawnRateMultiplier = Mathf.Min(spawnRateMultiplier + 0.1f, 1.5f);
+            spawnInterval -= 0.1f; // adjust this value to control the rate of decrease
+            timeElapsed = 0f;
+        }
+
         if (Time.time > nextSpawnTime)
         {
             Spawn();
-            nextSpawnTime = Time.time + 2f;
+            nextSpawnTime = Time.time + spawnInterval;
         }
     }
 
@@ -29,6 +43,6 @@ public class BeatSpawner : MonoBehaviour
     {
         int randomIndex = Random.Range(0, spawnableObject.Length);
         GameObject spawnedObject = Instantiate(spawnableObject[randomIndex], transform.position, Quaternion.identity);
-        spawnedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-beatTempo, 0f);
+        spawnedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-beatTempo * movementSpeedMultiplier, 0f);
     }
 }

@@ -86,14 +86,14 @@ public class GManager : MonoBehaviour
         StartCoroutine(ShowPopUp(missText));
     }
 
-    //public void StopTime()
-    //{
-    //    Debug.Log("Game has stopped due to score less than 0");
+    public void StopTime()
+    {
+       Debug.Log("Game has stopped due to score less than 0");
 
-    //    gameIsRunning = false;
-    //    music.Pause();
-    //    Time.timeScale = 0;
-    //}
+       gameIsRunning = false;
+       music.Pause();
+       Time.timeScale = 0;
+    }
 
     public IEnumerator Timer()
     {
