@@ -53,32 +53,32 @@ public class AlphabetGame2 : MonoBehaviour
         while(true)
         {
             spawnIntervalText.gameObject.SetActive(true);
-            spawnIntervalText.text = "Count = 10";
+            spawnIntervalText.text = "Timer = 10";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 9";
+            spawnIntervalText.text = "Timer = 9";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 8";
+            spawnIntervalText.text = "Timer = 8";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 7";
+            spawnIntervalText.text = "Timer = 7";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 6";
+            spawnIntervalText.text = "Timer = 6";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 5";
+            spawnIntervalText.text = "Timer = 5";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 4";
+            spawnIntervalText.text = "Timer = 4";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 3";
+            spawnIntervalText.text = "Timer = 3";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 2";
+            spawnIntervalText.text = "Timer = 2";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Count = 1";
+            spawnIntervalText.text = "Timer = 1";
             yield return new WaitForSeconds(wait);
             spawnIntervalText.gameObject.SetActive(false);
             
 
-            currentLetter = (char)('A' + Random.Range(0, 13));
-            letterText.text = currentLetter.ToString();
             canScore = true; // Reset scoring ability for the new letter
+            currentLetter = (char)('A' + Random.Range(0, 26));
+            letterText.text = currentLetter.ToString();
             letterText.color = Color.white;
         }
 
@@ -91,13 +91,11 @@ public class AlphabetGame2 : MonoBehaviour
         {
             if (letter == currentLetter)
             {
-                
                 score++;
                 letterText.color = Color.green;
                 UpdateScore();
                 canScore = false; // Disable scoring until the next letter is spawned
             }
-
         }
     }
 
