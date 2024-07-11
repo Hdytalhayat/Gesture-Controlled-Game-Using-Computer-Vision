@@ -6,7 +6,13 @@ using UnityEngine.UI;
 
 public class RPS : MonoBehaviour
 {
-
+    public enum Choice
+    {
+        Rock = 0,
+        Paper = 1,
+        Scissors = 2
+    }
+    Choice playerChoice, opponentChoice;
     // UI Image to display the current choice
     public Image comImg;
     // UI Image to display the player's choice
@@ -17,26 +23,54 @@ public class RPS : MonoBehaviour
     private int player, com;
 
     // UI Text to display the result, countdown, and score
-    public TextMeshProUGUI resultText;
-    public TextMeshProUGUI countdownText;
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI resultText, countdownText, playerScoreText, comScoreText;
 
     // Timer to spawn new choices every 5 seconds
     private float timer = 5f;
     // Score
-    private int score = 0;
+    private int playerScore = 0;
+    private int comScore = 0;
     private bool canScore = false;
     private bool inputed = false;
 
+
+    UDPReceive uDPReceive;
+    string data;
+    string[] points;
+
+    private void DataHandle()
+    {
+        data = uDPReceive.data;
+        // Remove the first and last character
+        data = data.Remove(0, 1);
+        data = data.Remove(data.Length - 1, 1);
+        points = data.Split(", ");
+        // print(points[0]+""+ points[1]); // Print the first point for debugging
+    }
     void Start()
     {
-        com = Random.Range(0,3);
-        scoreText.text = score.ToString();
+        uDPReceive = GetComponent<UDPReceive>();
+        com = Random.Range(0, 3);
+        if (com == 0)
+        {
+            opponentChoice = Choice.Rock;
+        }
+        else if (com == 1)
+        {
+            opponentChoice = Choice.Paper;
+        }
+        else if (com == 2)
+        {
+            opponentChoice = Choice.Scissors;
+        }
+        playerScoreText.text = playerScore.ToString();
+        comScoreText.text = comScore.ToString();
     }
 
     void Update()
     {
-       
+        DataHandle();
+        Debug.Log(points[5]);
         comImg.sprite = rps[Random.Range(0, 3)];
         // Countdown timer
         timer -= Time.deltaTime;
@@ -48,26 +82,30 @@ public class RPS : MonoBehaviour
             comImg.sprite = rps[com];
             if (canScore && !inputed)
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (points[5]=="'Rock'")
                 {
                     player = 0;
-                    Check(player);
+                    playerChoice = Choice.Rock;
                     playerImage.sprite = rps[0];
                     inputed = true;
+                    DetermineWinner(playerChoice, opponentChoice);
                 }
-                else if (Input.GetKeyDown(KeyCode.B))
+                else if (points[5]=="'Paper'")
                 {
                     player = 1;
-                    Check(player);
+                    playerChoice = Choice.Paper;
                     playerImage.sprite = rps[1];
                     inputed = true;
+                    DetermineWinner(playerChoice, opponentChoice);
+
                 }
-                else if (Input.GetKeyDown(KeyCode.C))
+                else if (points[5]=="'Scissor'")
                 {
                     player = 2;
-                    Check(player);
+                    playerChoice = Choice.Scissors;
                     playerImage.sprite = rps[2];
                     inputed = true;
+                    DetermineWinner(playerChoice, opponentChoice);
                 }
                 Invoke("StartImage", 3f);
             }
@@ -81,23 +119,44 @@ public class RPS : MonoBehaviour
     {
         timer = 5f;
         com = Random.Range(0, 3);
+        if (com == 0)
+        {
+            opponentChoice = Choice.Rock;
+        }
+        else if (com == 1)
+        {
+            opponentChoice = Choice.Paper;
+        }
+        else if (com == 2)
+        {
+            opponentChoice = Choice.Scissors;
+        }
         canScore = false;
-        if (timer <= 0){
+        if (timer <= 0)
+        {
             resultText.text = "Now";
         }
         inputed = false;
     }
-    void Check(int p)
+    public void DetermineWinner(Choice playerChoice, Choice opponentChoice)
     {
-        if(p == com)
+        if (playerChoice == opponentChoice)
         {
-            score +=1;
-            resultText.text = "Correct";
+            resultText.text = "Draw!";
+        }
+        else if ((playerChoice == Choice.Rock && opponentChoice == Choice.Scissors) ||
+                 (playerChoice == Choice.Paper && opponentChoice == Choice.Rock) ||
+                 (playerChoice == Choice.Scissors && opponentChoice == Choice.Paper))
+        {
+            playerScore += 1;
+            resultText.text = "Player wins!";
         }
         else
         {
-            resultText.text = "wrong";
+            comScore += 1;
+            resultText.text = "Opponent wins!";
         }
-        scoreText.text = score.ToString();
+        playerScoreText.text = playerScore.ToString();
+        comScoreText.text = comScore.ToString();
     }
 }
