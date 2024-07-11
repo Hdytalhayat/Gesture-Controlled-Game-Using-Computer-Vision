@@ -6,147 +6,98 @@ using UnityEngine.UI;
 
 public class RPS : MonoBehaviour
 {
-    // Enum for the three possible choices
-    public enum Choice { Rock, Paper, Scissor }
 
     // UI Image to display the current choice
-    public Image choiceImage;
-
+    public Image comImg;
     // UI Image to display the player's choice
     public Image playerImage;
-
     // Images for rock, paper, and scissor
     public Sprite[] rps;
+
+    private int player, com;
 
     // UI Text to display the result, countdown, and score
     public TextMeshProUGUI resultText;
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI scoreText;
 
-    // Current choice
-    private Choice currentChoice;
-
     // Timer to spawn new choices every 5 seconds
     private float timer = 5f;
-
-    // Input keys
-    private KeyCode rockInput = KeyCode.A;
-    private KeyCode paperInput = KeyCode.B;
-    private KeyCode scissorInput = KeyCode.C;
-
-    // Flag to check if input has been received
-    private bool inputReceived = false;
-
     // Score
     private int score = 0;
+    private bool canScore = false;
+    private bool inputed = false;
 
     void Start()
     {
-        StartRound();
-        UpdateScoreText();
+        com = Random.Range(0,3);
+        scoreText.text = score.ToString();
     }
 
     void Update()
     {
+       
+        comImg.sprite = rps[Random.Range(0, 3)];
         // Countdown timer
-
-
         timer -= Time.deltaTime;
         countdownText.text = Mathf.Ceil(timer).ToString();
-
-        if (timer <= 0f)
+        if (timer <= 0)
         {
-            // If time runs out and no input received
             countdownText.text = "0";
-            Invoke("ChangeImage", 3f);
-            inputReceived = true;
-            currentChoice = GetRandomChoice();
-        
-            if (Input.GetKeyDown(rockInput))
+            canScore = true;
+            comImg.sprite = rps[com];
+            if (canScore && !inputed)
             {
-                playerImage.sprite = rps[0];
-                CheckChoice(Choice.Rock);
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    player = 0;
+                    Check(player);
+                    playerImage.sprite = rps[0];
+                    inputed = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.B))
+                {
+                    player = 1;
+                    Check(player);
+                    playerImage.sprite = rps[1];
+                    inputed = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.C))
+                {
+                    player = 2;
+                    Check(player);
+                    playerImage.sprite = rps[2];
+                    inputed = true;
+                }
+                Invoke("StartImage", 3f);
             }
-            else if (Input.GetKeyDown(paperInput))
-            {
-                playerImage.sprite = rps[1];
-                CheckChoice(Choice.Paper);
-            }
-            else if (Input.GetKeyDown(scissorInput))
-            {
-                playerImage.sprite = rps[2];
-                CheckChoice(Choice.Scissor);
-            }
-        }
-        else{
-            choiceImage.sprite = rps[Random.Range(0,rps.Length)];
-
-        }
-        
-    }
-
-    // Get a random choice
-    private Choice GetRandomChoice()
-    {
-        int randomIndex = Random.Range(0, 3);
-        return (Choice)randomIndex;
-    }
-
-    // Update the UI image to display the current choice
-    private void UpdateChoiceImage()
-    {
-        switch (currentChoice)
-        {
-            case Choice.Rock:
-                choiceImage.sprite = rps[0];
-                break;
-            case Choice.Paper:
-                choiceImage.sprite = rps[1];
-                break;
-            case Choice.Scissor:
-                choiceImage.sprite = rps[2];
-                break;
-        }
-    }
-
-    // Check the player's choice and update the result
-    private void CheckChoice(Choice playerChoice)
-    {
-        if (playerChoice == currentChoice)
-        {
-            resultText.text = "Correct!";
-            score += 1;
         }
         else
         {
-            resultText.text = "Wrong!";
+            resultText.text = "Wait";
         }
-        inputReceived = true;
-        UpdateScoreText();
-        Invoke("ChangeImage", 3f);
     }
-
-    // Change the image after 3 seconds
-    private void ChangeImage()
+    void StartImage()
     {
-        StartRound();
-    }
-
-    // Start a new round
-    private void StartRound()
-    {
-        
-        UpdateChoiceImage();
         timer = 5f;
-        countdownText.text = "5";
-        resultText.text = "";
-        inputReceived = true;
-        playerImage.sprite = null;
+        com = Random.Range(0, 3);
+        canScore = false;
+        if (timer <= 0){
+            resultText.text = "Now";
+        }
+        inputed = false;
     }
-
-    // Update the score text
-    private void UpdateScoreText()
+    void Check(int p)
     {
-        scoreText.text = "Score = " + score;
+        if(p == com)
+        {
+            score +=1;
+            resultText.text = "Correct";
+        }
+        else
+        {
+            resultText.text = "wrong";
+        }
+        scoreText.text = score.ToString();
     }
 }
