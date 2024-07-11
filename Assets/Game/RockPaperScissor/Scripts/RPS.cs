@@ -6,79 +6,83 @@ using UnityEngine.UI;
 
 public class RPS : MonoBehaviour
 {
-// // Enum for the three possible choices
+    // Enum for the three possible choices
     public enum Choice { Rock, Paper, Scissor }
 
     // UI Image to display the current choice
     public Image choiceImage;
 
-    // Images for rock, paper, and scissor
-    public Sprite rockImage;
-    public Sprite paperImage;
-    public Sprite scissorImage;
+    // UI Image to display the player's choice
+    public Image playerImage;
 
-    // UI Text to display the result
+    // Images for rock, paper, and scissor
+    public Sprite[] rps;
+
+    // UI Text to display the result, countdown, and score
     public TextMeshProUGUI resultText;
+    public TextMeshProUGUI countdownText;
+    public TextMeshProUGUI scoreText;
 
     // Current choice
     private Choice currentChoice;
 
     // Timer to spawn new choices every 5 seconds
-    private float timer = 0f;
+    private float timer = 5f;
 
     // Input keys
     private KeyCode rockInput = KeyCode.A;
     private KeyCode paperInput = KeyCode.B;
     private KeyCode scissorInput = KeyCode.C;
+
     // Flag to check if input has been received
     private bool inputReceived = false;
 
+    // Score
+    private int score = 0;
+
     void Start()
     {
-        // Initialize the current choice to a random value
-        currentChoice = GetRandomChoice();
-        UpdateChoiceImage();
+        StartRound();
+        UpdateScoreText();
     }
 
     void Update()
     {
-        // Increment the timer
-        timer += Time.deltaTime;
+        // Countdown timer
 
-        // If the timer reaches 5 seconds, spawn a new choice
-        if (timer >= 5f && !inputReceived)
+
+        timer -= Time.deltaTime;
+        countdownText.text = Mathf.Ceil(timer).ToString();
+
+        if (timer <= 0f)
         {
-            timer = 0f;
+            // If time runs out and no input received
+            countdownText.text = "0";
+            Invoke("ChangeImage", 3f);
+            inputReceived = true;
             currentChoice = GetRandomChoice();
-            UpdateChoiceImage();
-            inputReceived = false;
+        
+            if (Input.GetKeyDown(rockInput))
+            {
+                playerImage.sprite = rps[0];
+                CheckChoice(Choice.Rock);
+            }
+            else if (Input.GetKeyDown(paperInput))
+            {
+                playerImage.sprite = rps[1];
+                CheckChoice(Choice.Paper);
+            }
+            else if (Input.GetKeyDown(scissorInput))
+            {
+                playerImage.sprite = rps[2];
+                CheckChoice(Choice.Scissor);
+            }
         }
+        else{
+            choiceImage.sprite = rps[Random.Range(0,rps.Length)];
 
-        // Check for input
-        if (Input.GetKeyDown(rockInput) && currentChoice == Choice.Rock)
-        {
-            resultText.text = "Correct!";
-            inputReceived = true;
-            Invoke("ChangeImage", 3f);
         }
-        else if (Input.GetKeyDown(paperInput) && currentChoice == Choice.Paper)
-        {
-            resultText.text = "Correct!";
-            inputReceived = true;
-            Invoke("ChangeImage", 3f);
-        }
-        else if (Input.GetKeyDown(scissorInput) && currentChoice == Choice.Scissor)
-        {
-            resultText.text = "Correct!";
-            inputReceived = true;
-            Invoke("ChangeImage", 3f);
-        }
-        else if (Input.GetKeyDown(rockInput) || Input.GetKeyDown(paperInput) || Input.GetKeyDown(scissorInput))
-        {
-            resultText.text = "Wrong!";
-            inputReceived = true;
-            Invoke("ChangeImage", 3f);
-        }
+        
     }
 
     // Get a random choice
@@ -94,23 +98,55 @@ public class RPS : MonoBehaviour
         switch (currentChoice)
         {
             case Choice.Rock:
-                choiceImage.sprite = rockImage;
+                choiceImage.sprite = rps[0];
                 break;
             case Choice.Paper:
-                choiceImage.sprite = paperImage;
+                choiceImage.sprite = rps[1];
                 break;
             case Choice.Scissor:
-                choiceImage.sprite = scissorImage;
+                choiceImage.sprite = rps[2];
                 break;
         }
+    }
+
+    // Check the player's choice and update the result
+    private void CheckChoice(Choice playerChoice)
+    {
+        if (playerChoice == currentChoice)
+        {
+            resultText.text = "Correct!";
+            score += 1;
+        }
+        else
+        {
+            resultText.text = "Wrong!";
+        }
+        inputReceived = true;
+        UpdateScoreText();
+        Invoke("ChangeImage", 3f);
     }
 
     // Change the image after 3 seconds
     private void ChangeImage()
     {
-        currentChoice = GetRandomChoice();
+        StartRound();
+    }
+
+    // Start a new round
+    private void StartRound()
+    {
+        
         UpdateChoiceImage();
-        timer = 0f;
-        inputReceived = false;
+        timer = 5f;
+        countdownText.text = "5";
+        resultText.text = "";
+        inputReceived = true;
+        playerImage.sprite = null;
+    }
+
+    // Update the score text
+    private void UpdateScoreText()
+    {
+        scoreText.text = "Score = " + score;
     }
 }
