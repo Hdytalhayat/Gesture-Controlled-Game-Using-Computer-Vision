@@ -13,6 +13,7 @@ public class GameManagerHUD : MonoBehaviour
     [SerializeField]private float transitionTime = 1f;
     [SerializeField]private int indexs = 0;
     [SerializeField]private string[] textOpenings = {"Welcome", "DLI Present", "NAMA GAME"};
+    [SerializeField]private int counter = 0;
     private void Start()
     {
         animator = textOpening.gameObject.GetComponent<Animator>();
@@ -20,8 +21,9 @@ public class GameManagerHUD : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && counter == 0)
         {
+            counter +=1;
             StartCoroutine(PlayFade());
         }
     }
@@ -40,5 +42,6 @@ public class GameManagerHUD : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenuUtama");
         }
+        counter = 0;
     }
 }
