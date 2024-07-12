@@ -31,19 +31,19 @@ public class MainMenu : MonoBehaviour
         tesJarak = GetComponent<TesJarak>();
     }
     
-    private void DynoS()
+    private void Chicken()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Ayam");
     }
 
-    private void Supper()
+    private void ASL()
     {
-        SceneManager.LoadScene("Superman");
+        SceneManager.LoadScene("ABC");
     }
 
-    private void Aims()
+    private void RPS()
     {
-        SceneManager.LoadScene("NormalMode");
+        SceneManager.LoadScene("RPS");
     }
 
     private void Quit()
@@ -57,8 +57,8 @@ public class MainMenu : MonoBehaviour
         DataHandle();
         if (tesJarak.IsValid)
         {
-            buttons[0].onClick.AddListener(DynoS);
-            buttons[1].onClick.AddListener(Supper);
+            buttons[0].onClick.AddListener(Chicken);
+            buttons[1].onClick.AddListener(ASL);
             // buttons[2].onClick.AddListener(Aims);
             // Mendeteksi input dari keyboard untuk mengubah pemilihan tombol
 

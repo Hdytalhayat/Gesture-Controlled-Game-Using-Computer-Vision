@@ -9,12 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/HandDetector.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/HUD/HUD.unity
+    guid: c5490668b4a3f304bb6a05113a151bda
+  - enabled: 1
     path: Assets/Scenes/MainMenuUtama.unity
     guid: 94785d141ec0d64488f227ecbae850ae
   - enabled: 1
-    path: Assets/Game/Dyno/Scenes/Game.unity
+    path: Assets/Game/Dyno/Scenes/Ayam.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Game/ABC/ABC.unity
+    guid: 6fce327e237a7904e8ceb28e7d1509bc
+  - enabled: 1
+    path: Assets/Game/RockPaperScissor/Scenes/RPS.unity
+    guid: b0b6e0f9851fcce489f3cb7b11a52dcc
+  - enabled: 0
     path: Assets/Game/Superman/Scenes/Superman.unity
     guid: 36a157df3ae559d48a7e1c1e237a3397
   - enabled: 0
