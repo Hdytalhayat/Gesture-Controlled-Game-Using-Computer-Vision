@@ -12,7 +12,6 @@ public class BeatSpawner : MonoBehaviour
     private float movementSpeedMultiplier = 1f;
     private float spawnRateMultiplier = 1f;
     private float timeElapsed = 0f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +25,8 @@ public class BeatSpawner : MonoBehaviour
         timeElapsed += Time.deltaTime;
         if (timeElapsed > 10f) // adjust this value to control the rate of increase
         {
-            movementSpeedMultiplier = Mathf.Min(movementSpeedMultiplier + 0.1f, 2.5f);
-            spawnRateMultiplier = Mathf.Min(spawnRateMultiplier + 0.1f, 1.5f);
+            movementSpeedMultiplier = Mathf.Clamp(movementSpeedMultiplier, movementSpeedMultiplier + 0.1f, 2.5f);
+            spawnRateMultiplier = Mathf.Clamp(spawnRateMultiplier, spawnRateMultiplier + 0.1f, 1.5f);
             spawnInterval -= 0.1f; // adjust this value to control the rate of decrease
             timeElapsed = 0f;
         }
