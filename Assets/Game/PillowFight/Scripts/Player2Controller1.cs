@@ -9,14 +9,12 @@ public class Player2Controller : MonoBehaviour
     public float hitInterval = 1.0f;
 
     private bool canHit = true;// Sound effects
-    public AudioSource audioSource;
-    public AudioClip hitSFX;
-    public AudioClip knockbackSFX;
+
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     void Update()
@@ -41,7 +39,7 @@ public class Player2Controller : MonoBehaviour
     IEnumerator DelayedKnockback()
     {
         animator.SetTrigger("Hit");
-        audioSource.PlayOneShot(hitSFX);
+       
         
         yield return new WaitForSeconds(hitDelay);
         
@@ -62,7 +60,7 @@ public class Player2Controller : MonoBehaviour
     {
         if (!player1Controller.GetComponent<Animator>().GetBool("Defence"))
         {
-            audioSource.PlayOneShot(knockbackSFX); // Play knockback SFX
+      
             animator.SetTrigger("Knockback");
         }
     }
