@@ -5,6 +5,13 @@ public class Player1Controller : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] private GameObject player2Controller;
+
+    // Sound effects
+    public AudioSource audioSource;
+    public AudioClip hitSFX;
+    public AudioClip knockbackSFX;
+
+    // Timers
     public float hitDelay = 0.1f;
     public float hitInterval = 1.0f;
 
@@ -12,6 +19,7 @@ public class Player1Controller : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
     }
 
@@ -36,7 +44,13 @@ public class Player1Controller : MonoBehaviour
 
     IEnumerator DelayedKnockback()
     {
+        if (!GetComponent<Animator>().GetBool("Defence"))
+        {
+            audioSource.PlayOneShot(hitSFX);
+        }
         animator.SetTrigger("Hit");
+        audioSource.PlayOneShot(hitSFX);
+
         yield return new WaitForSeconds(hitDelay);
         
         // Check if Player 2 is defending
@@ -56,6 +70,7 @@ public class Player1Controller : MonoBehaviour
     {
         if (!player2Controller.GetComponent<Animator>().GetBool("Defence"))
         {
+            audioSource.PlayOneShot(knockbackSFX); // Play knockback SFX
             animator.SetTrigger("Knockback");
         }
     }
