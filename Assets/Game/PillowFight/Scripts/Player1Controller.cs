@@ -1,4 +1,5 @@
 using System.Collections;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class Player1Controller : MonoBehaviour
@@ -6,7 +7,12 @@ public class Player1Controller : MonoBehaviour
     public Animator animator;
     [SerializeField] private GameObject player2Controller;
 
-    // Sound effects
+    // health
+
+    public int maxHealth = 100;
+	public int currentHealth;
+
+	public HealthBar healthBar;
 
 
     // Timers
@@ -14,15 +20,28 @@ public class Player1Controller : MonoBehaviour
     public float hitInterval = 1.0f;
 
     private bool canHit = true;
-
+    Rigidbody2D rb2d;
     void Start()
     {
-    
+        currentHealth = maxHealth;
+		healthBar.SetMaxHealth(maxHealth);
         animator = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        if(currentHealth <= 0)
+        {
+            animator.SetTrigger("Dead");
+            rb2d.gravityScale = 1;
+        }
+        else
+        {
+            animator.SetBool("IsDead", false);
+            rb2d.gravityScale = 0;
+
+        }
         if (canHit && Input.GetKeyDown(KeyCode.Q))
         {
             StartCoroutine(DelayedKnockback());
@@ -51,8 +70,16 @@ public class Player1Controller : MonoBehaviour
         if (!player2Controller.GetComponent<Animator>().GetBool("Defence"))
         {
             player2Controller.GetComponent<Player2Controller>().PlayKnockback();
+            
         }
     }
+
+    void TakeDamage(int damage)
+	{
+		currentHealth -= damage;
+
+		healthBar.SetHealth(currentHealth);
+	}
 
     IEnumerator HitIntervalTimer()
     {
@@ -66,6 +93,10 @@ public class Player1Controller : MonoBehaviour
         {
            
             animator.SetTrigger("Knockback");
+            TakeDamage(10);
+        }
+        if(currentHealth <= 0)
+        {
         }
     }
 }
