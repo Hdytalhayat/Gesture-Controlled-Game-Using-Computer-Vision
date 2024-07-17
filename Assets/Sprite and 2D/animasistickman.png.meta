@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,490 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: idle1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 83
+        height: 103
+      alignment: 9
+      pivot: {x: 0.6436129, y: 0.42188388}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efbfe2ce4dd8f84fac74e4a399f3f8a
+      internalID: -1061172517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 497
+        width: 73
+        height: 101
+      alignment: 9
+      pivot: {x: 0.73219573, y: 0.41067353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd04fb31f5f5c741b9fba2af9d8c4a8
+      internalID: -803330770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 493
+        width: 83
+        height: 101
+      alignment: 9
+      pivot: {x: 0.658106, y: 0.39713946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66beb95c9813154e86313c90c4c1179
+      internalID: 1827783516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle4
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 496
+        width: 92
+        height: 101
+      alignment: 9
+      pivot: {x: 0.5832055, y: 0.42150092}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f37520e881c964fa4a822879c175e2
+      internalID: 1938429718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle5
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 493
+        width: 88
+        height: 99
+      alignment: 9
+      pivot: {x: 0.6304821, y: 0.4033462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7246a4bf0402f65499e8fd82716aa45d
+      internalID: 1900020665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle6
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 492
+        width: 83
+        height: 99
+      alignment: 9
+      pivot: {x: 0.6712808, y: 0.38677672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce15d9bbd9be774ca700a7bd1388405
+      internalID: -337968195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 368
+        width: 83
+        height: 103
+      alignment: 9
+      pivot: {x: 0.6614926, y: 0.40411082}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757a273ee796cef499c07d69b2db7244
+      internalID: 946873539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 399
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6f734d1f5b4cc41b4d9496f273ddd7
+      internalID: 774371873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 363
+        width: 71
+        height: 108
+      alignment: 9
+      pivot: {x: 0.5894253, y: 0.43467852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cef23899cfd7f5478b5c7ffc5af56bc
+      internalID: 444322069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit3
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 379
+        width: 76
+        height: 88
+      alignment: 9
+      pivot: {x: 0.15446031, y: 0.31980896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9608691a9b3f2f44b8d4eab703380c5c
+      internalID: -2015201477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 88
+        height: 84
+      alignment: 9
+      pivot: {x: 0.13123217, y: 0.3068357}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ecd6c392f4d59a4094521e5a6f97ea5
+      internalID: -994660660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_11
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 394
+        width: 48
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba6c26631dd00843a7fe08b983e3c32
+      internalID: -995744001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_12
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 386
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37237295b2109f49a48d90569c5a1bc
+      internalID: 1991529802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_13
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 375
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72624e3282d8fa447b14553fbaa8907e
+      internalID: -207718229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_14
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 378
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b144b03883cdb184693b3bd799b9a12e
+      internalID: -728295472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_15
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 376
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13721dbc013b25647b88f05cfed7107e
+      internalID: 1407374793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_16
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 371
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8286a12345ac174418580a0366d7ce4f
+      internalID: -561080913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knockback1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 231
+        width: 73
+        height: 101
+      alignment: 9
+      pivot: {x: 0.71763474, y: 0.4094332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13881bc7554156449042db9ea27ccc0
+      internalID: 443239039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knockback2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 226
+        width: 69
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6535003, y: 0.44704255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3557c763f447f49b698c5e5d701180
+      internalID: 198540916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fall
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 230
+        width: 83
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48994851f32c3f469e9b55b0778ad1f
+      internalID: -1950547236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 114
+        width: 48
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a9bd6faa6bde24b83cb5e2aaf7287a
+      internalID: -231998256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_21
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 103
+        width: 38
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b6b72ecbc8be9e49a381e6885770a55
+      internalID: -885885909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animasistickman_22
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 131
+        width: 211
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b134eae514a354989a5fb2e6105757
+      internalID: -168443671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +589,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      animasistickman_11: -995744001
+      animasistickman_12: 1991529802
+      animasistickman_13: -207718229
+      animasistickman_14: -728295472
+      animasistickman_15: 1407374793
+      animasistickman_16: -561080913
+      animasistickman_20: -231998256
+      animasistickman_21: -885885909
+      animasistickman_22: -168443671
+      animasistickman_7: 774371873
+      fall: -1950547236
+      hit1: 946873539
+      hit2: 444322069
+      hit3: -2015201477
+      hit4: -994660660
+      idle1: -1061172517
+      idle2: -803330770
+      idle3: 1827783516
+      idle4: 1938429718
+      idle5: 1900020665
+      idle6: -337968195
+      knockback1: 443239039
+      knockback2: 198540916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
