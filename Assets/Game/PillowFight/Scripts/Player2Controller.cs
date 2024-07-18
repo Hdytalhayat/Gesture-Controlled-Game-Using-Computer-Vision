@@ -1,35 +1,28 @@
 using System.Collections;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
-
-public class Player1Controller : MonoBehaviour
+public class Player2Controller : MonoBehaviour
 {
     public Animator animator;
-    [SerializeField] private GameObject player2Controller;
-
+    [SerializeField] private GameObject player1Controller;
+    public float hitDelay = 0.1f;
+    public float hitInterval = 1.0f;
     public GameObject notFound;
 
-    // healths
-
-    public int maxHealth = 100;
+     public int maxHealth = 100;
 	public int currentHealth;
 
 	public HealthBar healthBar;
 
+    private bool canHit = true;// Sound effects
 
-    // Timers
-    public float hitDelay = 0.1f;
-    public float hitInterval = 1.0f;
-
-    private bool canHit = true;
     Rigidbody2D rb2d;
+
     public GameObject udp;
     UDPReceive uDPReceive;
     string data;
     string[] points;
-
+    
     public bool isActive = false;
     private void DataHandle()
     {
@@ -46,6 +39,7 @@ public class Player1Controller : MonoBehaviour
         currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
         animator = GetComponent<Animator>();
+        
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -61,12 +55,13 @@ public class Player1Controller : MonoBehaviour
             notFound.SetActive(false);
             isActive = true;
         }
-        if(player2Controller.GetComponent<Player2Controller>().isActive)
+        if(player1Controller.GetComponent<Player1Controller>().isActive)
         {
             if(currentHealth <= 0)
             {
                 animator.SetTrigger("Dead");
                 rb2d.gravityScale = 1;
+
             }
             else
             {
@@ -74,14 +69,14 @@ public class Player1Controller : MonoBehaviour
                 rb2d.gravityScale = 0;
 
             }
-            if (canHit && (Input.GetKeyDown(KeyCode.Q) || points[6] == "'hit'"))
+            if (canHit && (Input.GetKeyDown(KeyCode.P) || points[7] == "'hit'"))
             {
                 StartCoroutine(DelayedKnockback());
                 canHit = false;
                 StartCoroutine(HitIntervalTimer());
             }
 
-            if (Input.GetKey(KeyCode.W)|| points[6] == "'def'")
+            if (Input.GetKey(KeyCode.O) || points[7] == "'def'")
             {
                 animator.SetBool("Defence", true);
             }
@@ -96,25 +91,22 @@ public class Player1Controller : MonoBehaviour
     IEnumerator DelayedKnockback()
     {
         animator.SetTrigger("Hit");
-      
-
+       
+        
         yield return new WaitForSeconds(hitDelay);
         
-        // Check if Player 2 is defending
-        if (!player2Controller.GetComponent<Animator>().GetBool("Defence"))
+        // Check if Player 1 is defending
+        if (!player1Controller.GetComponent<Animator>().GetBool("Defence"))
         {
-            player2Controller.GetComponent<Player2Controller>().PlayKnockback();
-            
+            player1Controller.GetComponent<Player1Controller>().PlayKnockback();
         }
     }
-
-    void TakeDamage(int damage)
+        void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
 	}
-
     IEnumerator HitIntervalTimer()
     {
         yield return new WaitForSeconds(hitInterval);
@@ -123,14 +115,11 @@ public class Player1Controller : MonoBehaviour
 
     public void PlayKnockback()
     {
-        if (!player2Controller.GetComponent<Animator>().GetBool("Defence"))
+        if (!player1Controller.GetComponent<Animator>().GetBool("Defence"))
         {
-           
+      
             animator.SetTrigger("Knockback");
             TakeDamage(10);
-        }
-        if(currentHealth <= 0)
-        {
         }
     }
 }
