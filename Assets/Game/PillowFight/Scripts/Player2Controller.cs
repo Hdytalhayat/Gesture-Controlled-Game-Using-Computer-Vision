@@ -11,6 +11,7 @@ public class Player2Controller : MonoBehaviour
 
      public int maxHealth = 100;
 	public int currentHealth;
+    private bool isDead = false;
 
 	public HealthBar healthBar;
 
@@ -57,32 +58,35 @@ public class Player2Controller : MonoBehaviour
         }
         if(player1Controller.GetComponent<Player1Controller>().isActive)
         {
-            if(currentHealth <= 0)
+            if (!isDead)  // Check if the player is not already dead
             {
-                animator.SetTrigger("Dead");
-                rb2d.gravityScale = 1;
+                if (currentHealth <= 0)
+                {
+                    animator.SetTrigger("Dead");
+                    rb2d.gravityScale = 1;
+                    isDead = true;  // Mark the player as dead
+                    return;
+                }
+                else
+                {
+                    rb2d.gravityScale = 0;
+                }
 
-            }
-            else
-            {
-                animator.SetBool("IsDead", false);
-                rb2d.gravityScale = 0;
+                if (canHit && (Input.GetKeyDown(KeyCode.P) || points[7] == "'hit'"))
+                {
+                    StartCoroutine(DelayedKnockback());
+                    canHit = false;
+                    StartCoroutine(HitIntervalTimer());
+                }
 
-            }
-            if (canHit && (Input.GetKeyDown(KeyCode.P) || points[7] == "'hit'"))
-            {
-                StartCoroutine(DelayedKnockback());
-                canHit = false;
-                StartCoroutine(HitIntervalTimer());
-            }
-
-            if (Input.GetKey(KeyCode.O) || points[7] == "'def'")
-            {
-                animator.SetBool("Defence", true);
-            }
-            else
-            {
-                animator.SetBool("Defence", false);
+                if (Input.GetKey(KeyCode.O) || points[7] == "'def'")
+                {
+                    animator.SetBool("Defence", true);
+                }
+                else
+                {
+                    animator.SetBool("Defence", false);
+                }
             }
 
         }
@@ -100,8 +104,9 @@ public class Player2Controller : MonoBehaviour
         {
             player1Controller.GetComponent<Player1Controller>().PlayKnockback();
         }
+        
     }
-        void TakeDamage(int damage)
+    void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 
@@ -115,7 +120,7 @@ public class Player2Controller : MonoBehaviour
 
     public void PlayKnockback()
     {
-        if (!player1Controller.GetComponent<Animator>().GetBool("Defence"))
+        if (!isDead && !player1Controller.GetComponent<Animator>().GetBool("Defence"))
         {
       
             animator.SetTrigger("Knockback");
