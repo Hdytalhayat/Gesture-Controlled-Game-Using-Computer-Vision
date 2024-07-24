@@ -1,81 +1,110 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScrollController : MonoBehaviour
 {
-    public GameObject scrollBar;
-    public Image background; // Reference to your canvas background image component
+    public Scrollbar scrollbar;
+    public GameObject[] elements;
+    public Image[] backgrounds; // Array untuk menyimpan background atau latar belakang masing-masing elemen
 
-    float scroll_pos = 0;
-    float[] pos;
+    float[] elementPositions;
+    float distanceBetweenElements;
 
     void Start()
     {
-        // Initialize pos array based on child count
-        pos = new float[transform.childCount];
+        // Inisialisasi posisi elemen
+        elementPositions = new float[elements.Length];
+        distanceBetweenElements = 1f / (elements.Length - 1f);
     }
 
     void Update()
     {
-        float distance = 1f / (pos.Length - 1f);
-
-        // Update pos array based on child positions
-        for (int i = 0; i < pos.Length; i++)
+        // Update posisi elemen
+        for (int i = 0; i < elementPositions.Length; i++)
         {
-            pos[i] = distance * i;
+            elementPositions[i] = distanceBetweenElements * i;
         }
 
-        // Check scroll input
-        if (Input.GetMouseButton(0))
+        // Memanipulasi skala elemen dan background berdasarkan posisi scrollbar
+        float scrollPosition = scrollbar.value;
+        for (int i = 0; i < elementPositions.Length; i++)
         {
-            scroll_pos = scrollBar.GetComponent<Scrollbar>().value;
-        }
-        else
-        {
-            // Adjust scrollbar value based on current position
-            for (int i = 0; i < pos.Length; i++)
+            if (scrollPosition < elementPositions[i] + (distanceBetweenElements / 2) && scrollPosition > elementPositions[i] - (distanceBetweenElements / 2))
             {
-                if (scroll_pos < pos[i] * (distance / 2) && scroll_pos > pos[i] - (distance / 2))
+                // Skala elemen yang dipilih
+                elements[i].transform.localScale = Vector2.Lerp(elements[i].transform.localScale, new Vector2(1.3f, 1.3f), 0.2f);
+                // Skala elemen lainnya
+                for (int j = 0; j < elementPositions.Length; j++)
                 {
-                    scrollBar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollBar.GetComponent<Scrollbar>().value, pos[i], 0.1f);
+                    if (j != i)
+                    {
+                        elements[j].transform.localScale = Vector2.Lerp(elements[j].transform.localScale, new Vector2(0.8f, 0.8f), 0.1f);
+                    }
                 }
+
+                // Ubah background yang terkait dengan elemen yang dipilih
+                ChangeBackground(i);
+            }
+        }
+    }
+
+    // Fungsi untuk mengubah background berdasarkan indeks elemen yang dipilih
+    void ChangeBackground(int selectedIndex)
+    {
+        for (int i = 0; i < backgrounds.Length; i++)
+        {
+            // Aktifkan background yang sesuai dengan elemen yang dipilih
+            backgrounds[i].gameObject.SetActive(i == selectedIndex);
+        }
+    }
+
+    // Fungsi untuk menggeser pilihan ke kiri
+    public void MoveSelectionLeft()
+    {
+        MoveSelection(-1);
+    }
+
+    // Fungsi untuk menggeser pilihan ke kanan
+    public void MoveSelectionRight()
+    {
+        MoveSelection(1);
+    }
+
+    void MoveSelection(int direction)
+    {
+        // Cari indeks elemen yang dipilih saat ini
+        int currentIndex = 0;
+        float currentScrollPosition = scrollbar.value;
+
+        for (int i = 0; i < elementPositions.Length; i++)
+        {
+            if (currentScrollPosition < elementPositions[i] + (distanceBetweenElements / 2) && currentScrollPosition > elementPositions[i] - (distanceBetweenElements / 2))
+            {
+                currentIndex = i;
+                break;
             }
         }
 
-        // Scale and background color change based on scroll position
-        for (int i = 0; i < pos.Length; i++)
+        // Hitung indeks baru berdasarkan arah
+        int newIndex = currentIndex + direction;
+        newIndex = Mathf.Clamp(newIndex, 0, elementPositions.Length - 1);
+
+        // Set posisi scrollbar
+        scrollbar.value = elementPositions[newIndex];
+
+        // Update skala sesuai dengan indeks baru
+        // Skala elemen yang dipilih
+        elements[newIndex].transform.localScale = new Vector2(1.3f, 1.3f);
+        // Skala elemen lainnya
+        for (int j = 0; j < elementPositions.Length; j++)
         {
-            if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
+            if (j != newIndex)
             {
-                // Change the scale of the child objects
-                transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1.3f, 1.3f), 0.2f);
-
-                // Change background color (example: based on index i)
-                if (background != null)
-                {
-                    if (i % 2 == 0)
-                    {
-                        background.color = Color.blue;
-                    }
-                    else
-                    {
-                        background.color = Color.red;
-                    }
-                }
-
-                // Reset other child scales
-                for (int a = 0; a < pos.Length; a++)
-                {
-                    if (a != i)
-                    {
-                        transform.GetChild(a).localScale = Vector2.Lerp(transform.GetChild(a).localScale, new Vector2(0.8f, 0.8f), 0.1f);
-                    }
-                }
+                elements[j].transform.localScale = new Vector2(0.8f, 0.8f);
             }
         }
+
+        // Ubah background sesuai dengan indeks baru
+        ChangeBackground(newIndex);
     }
 }
