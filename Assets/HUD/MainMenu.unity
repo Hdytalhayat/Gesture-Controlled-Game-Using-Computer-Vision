@@ -300,7 +300,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 184216039}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 520882042}
+        m_TargetAssemblyTypeName: ScrollController, Assembly-CSharp
+        m_MethodName: ToAbc
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &184216039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +469,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 376443873}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 520882042}
+        m_TargetAssemblyTypeName: ScrollController, Assembly-CSharp
+        m_MethodName: ToRPS
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &376443873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,6 +1058,7 @@ GameObject:
   - component: {fileID: 520882040}
   - component: {fileID: 520882041}
   - component: {fileID: 520882042}
+  - component: {fileID: 520882043}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1127,6 +1152,22 @@ MonoBehaviour:
   - {fileID: 1000530204}
   - {fileID: 568648497}
   - {fileID: 1229749109}
+--- !u!114 &520882043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520882038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fd55ecaadca6142870f06d75efc3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 1209
+  startReceiving: 1
+  printToConsole: 0
+  data: '['''', False, (0, 0), 0, '''', '''', '''', 0, '''']'
 --- !u!1 &568648496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ae7d4019bd58d8e40b46e679b7bcb46c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f5cd044cc1d70b4cb06bacf6b088e57, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1284,7 +1325,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 595190466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 520882042}
+        m_TargetAssemblyTypeName: ScrollController, Assembly-CSharp
+        m_MethodName: ToBantal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &595190466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1897,7 +1950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 77fade7cc71c8124c8e8621e35acb4eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a087b8d4504fae941be0ae5bc8b6f0b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1972,7 +2025,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 143b647bd2c6ae843a4aadd405b7aa79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e52e8a1325b9ff94b9e57afe64a23b68, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2047,7 +2100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 532510e568c93c24c847344aed5272a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2501,7 +2554,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1683704760}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 520882042}
+        m_TargetAssemblyTypeName: ScrollController, Assembly-CSharp
+        m_MethodName: ToChickenn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1683704760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,7 +3016,6 @@ GameObject:
   - component: {fileID: 2042768575}
   - component: {fileID: 2042768574}
   - component: {fileID: 2042768573}
-  - component: {fileID: 2042768577}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3048,24 +3112,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2042768577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042768572}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cb773d876b322f459418e33cd7ce5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 184216038}
-  - {fileID: 595190465}
-  - {fileID: 376443872}
-  - {fileID: 1683704759}
-  delay: 2000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

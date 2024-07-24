@@ -1,4 +1,7 @@
+using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScrollController : MonoBehaviour
@@ -9,9 +12,26 @@ public class ScrollController : MonoBehaviour
 
     float[] elementPositions;
     float distanceBetweenElements;
+    UDPReceive uDPReceive;
+    string data;
+    string[] points;
 
+    bool canMove = true;
+    int indexBtn = 0;
+
+    private void DataHandle()
+    {
+        data = uDPReceive.data;
+        // Remove the first and last character
+        data = data.Remove(0, 1);
+        data = data.Remove(data.Length - 1, 1);
+        points = data.Split(", ");
+        // print(points[0]+""+ points[1]); // Print the first point for debugging
+    }
     void Start()
     {
+        uDPReceive = GetComponent<UDPReceive>();
+        data = uDPReceive.data;
         // Inisialisasi posisi elemen
         elementPositions = new float[elements.Length];
         distanceBetweenElements = 1f / (elements.Length - 1f);
@@ -19,6 +39,7 @@ public class ScrollController : MonoBehaviour
 
     void Update()
     {
+        DataHandle();
         // Update posisi elemen
         for (int i = 0; i < elementPositions.Length; i++)
         {
@@ -45,9 +66,40 @@ public class ScrollController : MonoBehaviour
                 // Ubah background yang terkait dengan elemen yang dipilih
                 ChangeBackground(i);
             }
+            if(points[9] == "'left'" && canMove)
+            {
+                MoveSelectionLeft();
+                StartCoroutine(DelayControl());
+                indexBtn --;
+                if(indexBtn <=0)
+                {
+                    indexBtn = 0;
+                }
+            }
+            if(points[9] == "'right'" && canMove)
+            {
+                MoveSelectionRight();
+                StartCoroutine(DelayControl());
+                indexBtn ++;
+                if(indexBtn > elements.Length-1)
+                {
+                    indexBtn = elements.Length-1;
+                }
+            }
+            if(points[9] == "'enter'")
+            {
+                elements[indexBtn].GetComponent<Button>().onClick.Invoke();
+            }
+            Debug.Log(indexBtn);
         }
+        
     }
+    IEnumerator DelayControl(){
 
+        canMove = false;
+        yield return new WaitForSeconds(1f);
+        canMove = true;
+    }
     // Fungsi untuk mengubah background berdasarkan indeks elemen yang dipilih
     void ChangeBackground(int selectedIndex)
     {
@@ -107,4 +159,24 @@ public class ScrollController : MonoBehaviour
         // Ubah background sesuai dengan indeks baru
         ChangeBackground(newIndex);
     }
+
+    public void ToChickenn()
+    {
+        SceneManager.LoadScene("Ayam");
+    }
+    public void ToBantal()
+    {
+        SceneManager.LoadScene("Pillow");
+
+    }
+    public void ToAbc()
+    {
+        SceneManager.LoadScene("ABC");
+
+    }
+    public void ToRPS()
+    {
+        SceneManager.LoadScene("RPS");
+
+    }     
 }
