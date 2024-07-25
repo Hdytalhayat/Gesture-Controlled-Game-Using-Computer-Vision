@@ -107,7 +107,7 @@ public class RPS : MonoBehaviour
                     inputed = true;
                     DetermineWinner(playerChoice, opponentChoice);
                 }
-                Invoke("StartImage", 3f);
+                Invoke("StartImage", 1f);
             }
         }
         else
