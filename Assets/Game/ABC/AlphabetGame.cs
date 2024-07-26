@@ -158,6 +158,6 @@ public class AlphabetGame : MonoBehaviour
 
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Nilai: " + score;
     }
 }

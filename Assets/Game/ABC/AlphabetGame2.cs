@@ -70,15 +70,15 @@ public class AlphabetGame2 : MonoBehaviour
         {
             spawnIntervalText.gameObject.SetActive(true);
             
-            spawnIntervalText.text = "Timer = 5";
+            spawnIntervalText.text = "Waktu = 5";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 4";
+            spawnIntervalText.text = "Waktu = 4";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 3";
+            spawnIntervalText.text = "Waktu = 3";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 2";
+            spawnIntervalText.text = "Waktu = 2";
             yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 1";
+            spawnIntervalText.text = "Waktu = 1";
             yield return new WaitForSeconds(wait);
             spawnIntervalText.gameObject.SetActive(false);
             
@@ -108,6 +108,6 @@ public class AlphabetGame2 : MonoBehaviour
 
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Nilai: " + score;
     }
 }

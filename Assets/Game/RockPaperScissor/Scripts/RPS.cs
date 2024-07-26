@@ -124,7 +124,7 @@ public class RPS : MonoBehaviour
         }
         else
         {
-            resultText.text = "Wait";
+            resultText.text = "Tunggu";
         }
         pauseMenu.SetActive(isPauseActive);
     }
@@ -159,7 +159,7 @@ public class RPS : MonoBehaviour
         canScore = false;
         if (timer <= 0)
         {
-            resultText.text = "Now";
+            resultText.text = "Sekarang";
         }
         inputed = false;
     }
@@ -167,19 +167,19 @@ public class RPS : MonoBehaviour
     {
         if (playerChoice == opponentChoice)
         {
-            resultText.text = "Draw!";
+            resultText.text = "Seimbang!";
         }
         else if ((playerChoice == Choice.Rock && opponentChoice == Choice.Scissors) ||
                  (playerChoice == Choice.Paper && opponentChoice == Choice.Rock) ||
                  (playerChoice == Choice.Scissors && opponentChoice == Choice.Paper))
         {
             playerScore += 1;
-            resultText.text = "Player wins!";
+            resultText.text = "Player Menang!";
         }
         else
         {
             comScore += 1;
-            resultText.text = "Opponent wins!";
+            resultText.text = "Lawan menang!";
         }
         playerScoreText.text = playerScore.ToString();
         comScoreText.text = comScore.ToString();
