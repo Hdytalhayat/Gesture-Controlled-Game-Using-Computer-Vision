@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +39,10 @@ public class RPS : MonoBehaviour
     string data;
     string[] points;
 
+    //Pause Menu
+    [SerializeField] private GameObject pauseMenu;
+    bool isPauseActive;
+
     private void DataHandle()
     {
         data = uDPReceive.data;
@@ -49,6 +54,7 @@ public class RPS : MonoBehaviour
     }
     void Start()
     {
+        isPauseActive = false;
         uDPReceive = GetComponent<UDPReceive>();
         com = Random.Range(0, 3);
         if (com == 0)
@@ -65,15 +71,21 @@ public class RPS : MonoBehaviour
         }
         playerScoreText.text = playerScore.ToString();
         comScoreText.text = comScore.ToString();
+        StartCoroutine(DelayPause());
+
     }
 
     void Update()
     {
         DataHandle();
-        Debug.Log(points[5]);
-        comImg.sprite = rps[Random.Range(0, 3)];
+        if(!isPauseActive)
+        {
+            comImg.sprite = rps[Random.Range(0, 3)];
+            timer -= Time.deltaTime;
+        
+
+        }
         // Countdown timer
-        timer -= Time.deltaTime;
         countdownText.text = Mathf.Ceil(timer).ToString();
         if (timer <= 0)
         {
@@ -113,6 +125,19 @@ public class RPS : MonoBehaviour
         else
         {
             resultText.text = "Wait";
+        }
+        pauseMenu.SetActive(isPauseActive);
+    }
+    IEnumerator DelayPause()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1f);
+            if(points[1] == "True")
+            {   
+                isPauseActive = !isPauseActive;
+            }
+
         }
     }
     void StartImage()

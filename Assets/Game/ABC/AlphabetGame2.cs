@@ -20,6 +20,9 @@ public class AlphabetGame2 : MonoBehaviour
     string[] points;
     char CharInput;
 
+    //Pause Menu
+    [SerializeField] private GameObject pauseMenu;
+    bool isPauseActive;
     private void DataHandle()
     {
         data = uDPReceive.data;
@@ -38,6 +41,8 @@ public class AlphabetGame2 : MonoBehaviour
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnLetter());
+        StartCoroutine(DelayPause());
+        isPauseActive = false;
     }
 
     void Update()
@@ -45,24 +50,26 @@ public class AlphabetGame2 : MonoBehaviour
         DataHandle();
         Debug.Log(CharInput+""+currentLetter);
         OnLetterKeyPressed(char.ToUpper(CharInput));
-        
+        pauseMenu.SetActive(isPauseActive);
     }
+    IEnumerator DelayPause()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1f);
+            if(points[1] == "True")
+            {   
+                isPauseActive = !isPauseActive;
+            }
 
+        }
+    }
     IEnumerator SpawnLetter()
     {
         while(true)
         {
             spawnIntervalText.gameObject.SetActive(true);
-            spawnIntervalText.text = "Timer = 10";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 9";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 8";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 7";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Timer = 6";
-            yield return new WaitForSeconds(wait);
+            
             spawnIntervalText.text = "Timer = 5";
             yield return new WaitForSeconds(wait);
             spawnIntervalText.text = "Timer = 4";

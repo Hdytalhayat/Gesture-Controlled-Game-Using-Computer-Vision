@@ -53,7 +53,7 @@ public class MenusController : MonoBehaviour
     }
     private void OnClickHome()
     {
-        SceneManager.LoadScene("MainMenuUtama");
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
