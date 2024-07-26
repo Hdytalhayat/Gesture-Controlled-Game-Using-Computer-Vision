@@ -25,11 +25,11 @@ public class MenusController : MonoBehaviour
     {
         DataHandle();
 
-        if (points[5] == "1")
+        if (points[9] == "'left'")
         {
             OnClickRetry();
         }
-        else if(points[5] == "2")
+        else if(points[9] == "'right'")
         {
             OnClickHome();
         }
