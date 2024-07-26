@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/HandDetector.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/HUD/HUD.unity
+    path: Assets/HUD/AboutUs.unity
     guid: c5490668b4a3f304bb6a05113a151bda
   - enabled: 1
     path: Assets/HUD/MainMenu.unity
