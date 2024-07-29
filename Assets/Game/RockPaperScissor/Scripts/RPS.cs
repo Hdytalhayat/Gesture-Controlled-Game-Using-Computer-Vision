@@ -71,6 +71,7 @@ public class RPS : MonoBehaviour
         }
         playerScoreText.text = playerScore.ToString();
         comScoreText.text = comScore.ToString();
+        isPauseActive = false;
         StartCoroutine(DelayPause());
 
     }
@@ -82,8 +83,6 @@ public class RPS : MonoBehaviour
         {
             comImg.sprite = rps[Random.Range(0, 3)];
             timer -= Time.deltaTime;
-        
-
         }
         // Countdown timer
         countdownText.text = Mathf.Ceil(timer).ToString();

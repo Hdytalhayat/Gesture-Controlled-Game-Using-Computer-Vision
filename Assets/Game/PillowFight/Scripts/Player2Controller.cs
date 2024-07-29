@@ -58,7 +58,7 @@ public class Player2Controller : MonoBehaviour
         }
         if(player1Controller.GetComponent<Player1Controller>().isActive)
         {
-            if (!isDead)  // Check if the player is not already dead
+            if (!isDead && player1Controller.GetComponent<Player1Controller>().canMove)  // Check if the player is not already dead
             {
                 if (currentHealth <= 0)
                 {

@@ -256,6 +256,7 @@ MonoBehaviour:
   hitInterval: 1
   udp: {fileID: 217134190}
   isActive: 0
+  pauseMenu: {fileID: 651913254}
 --- !u!61 &63257894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1008,6 +1009,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &651913254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5474862627035174488, guid: 7429f81f189b82049b730b46edb945a3, type: 3}
+  m_PrefabInstance: {fileID: 766880886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &726053078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1248,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -264.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6631919872971955117, guid: 7429f81f189b82049b730b46edb945a3, type: 3}
+      propertyPath: udp
+      value: 
+      objectReference: {fileID: 217134190}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

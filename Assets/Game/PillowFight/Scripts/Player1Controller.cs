@@ -32,6 +32,12 @@ public class Player1Controller : MonoBehaviour
     string[] points;
 
     public bool isActive = false;
+    
+    //Pause Menu
+    [SerializeField] private GameObject pauseMenu;
+    bool isPauseActive; 
+
+    public bool canMove;
     private void DataHandle()
     {
         data = uDPReceive.data;
@@ -48,6 +54,7 @@ public class Player1Controller : MonoBehaviour
 		healthBar.SetMaxHealth(maxHealth);
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        StartCoroutine(DelayPause());
     }
 
     void Update()
@@ -64,7 +71,7 @@ public class Player1Controller : MonoBehaviour
         }
         if(player2Controller.GetComponent<Player2Controller>().isActive)
         {
-            if (!isDead)  // Check if the player is not already dead
+            if (!isDead && canMove)  // Check if the player is not already dead
             {
                 
                 if (currentHealth <= 0)
@@ -96,6 +103,14 @@ public class Player1Controller : MonoBehaviour
             }
 
         }
+        pauseMenu.SetActive(isPauseActive);
+        if(isPauseActive)
+        {
+            canMove = !isPauseActive;
+        }else{
+            canMove = true;
+        }
+
     }
 
     IEnumerator DelayedKnockback()
@@ -134,6 +149,18 @@ public class Player1Controller : MonoBehaviour
            
             animator.SetTrigger("Knockback");
             TakeDamage(10);
+        }
+    }
+    IEnumerator DelayPause()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1f);
+            if(points[1] == "True")
+            {   
+                isPauseActive = !isPauseActive;
+            }
+
         }
     }
 }

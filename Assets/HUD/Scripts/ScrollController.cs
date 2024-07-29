@@ -19,6 +19,9 @@ public class ScrollController : MonoBehaviour
     bool canMove = true;
     int indexBtn = 0;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] selectionAudio;
+
     private void DataHandle()
     {
         data = uDPReceive.data;
@@ -39,6 +42,7 @@ public class ScrollController : MonoBehaviour
 
     void Update()
     {
+        print(indexBtn);
         DataHandle();
         // Update posisi elemen
         for (int i = 0; i < elementPositions.Length; i++)
@@ -88,6 +92,7 @@ public class ScrollController : MonoBehaviour
             }
             if(points[9] == "'enter'")
             {
+                StartCoroutine(PlaySoundSelection(1));
                 elements[indexBtn].GetComponent<Button>().onClick.Invoke();
             }
             Debug.Log(indexBtn);
@@ -124,10 +129,11 @@ public class ScrollController : MonoBehaviour
 
     void MoveSelection(int direction)
     {
+
         // Cari indeks elemen yang dipilih saat ini
         int currentIndex = 0;
         float currentScrollPosition = scrollbar.value;
-
+        StartCoroutine( PlaySoundSelection(0));
         for (int i = 0; i < elementPositions.Length; i++)
         {
             if (currentScrollPosition < elementPositions[i] + (distanceBetweenElements / 2) && currentScrollPosition > elementPositions[i] - (distanceBetweenElements / 2))
@@ -183,5 +189,11 @@ public class ScrollController : MonoBehaviour
     {
         SceneManager.LoadScene("AboutUs");
 
-    }     
-}
+    }   
+    IEnumerator PlaySoundSelection(int indexAudio)
+    {
+        audioSource.PlayOneShot(selectionAudio[indexAudio]);
+        yield return new WaitForSeconds(selectionAudio[indexAudio].length);
+    }
+}    
+    
