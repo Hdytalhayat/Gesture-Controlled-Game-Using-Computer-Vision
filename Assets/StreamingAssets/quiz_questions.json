@@ -1,0 +1,14 @@
+{
+    "questions": [
+      {
+        "question": "Ibu kota Indonesia adalah...",
+        "options": ["Jakarta", "Surabaya"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Benua terbesar di dunia adalah...",
+        "options": ["Afrika", "Asia"],
+        "correctAnswer": 1
+      }
+    ]
+  }
