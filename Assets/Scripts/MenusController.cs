@@ -45,13 +45,13 @@ public class MenusController : MonoBehaviour
         // print(points[0]+""+ points[1]); // Print the first point for debugging
     }
 
-    private void OnClickRetry()
+    public void OnClickRetry()
     {
         Scene currentScene = SceneManager.GetActiveScene();
             
         SceneManager.LoadScene(currentScene.name);
     }
-    private void OnClickHome()
+    public void OnClickHome()
     {
         SceneManager.LoadScene("MainMenu");
     }

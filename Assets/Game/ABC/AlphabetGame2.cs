@@ -1,16 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class AlphabetGame2 : MonoBehaviour
 {
     public Text letterText; // UI Text to display the current letter
-    public float spawnInterval = 2f; // Time between letter spawns
     public Text scoreText; // UI Text to display the score
     public Text spawnIntervalText;
+    public TextMeshProUGUI resultText; // UI Text to display the final score
+    public TextMeshProUGUI highScoreText; // UI Text to display the high score
+    public TextMeshProUGUI letterRateText; // UI Text to display the letter rate
 
     private char currentLetter;
     private int score = 0;
+    private int highScore = 0;
+    private int correctLetters = 0;
     private bool canScore; // Flag to indicate if scoring is allowed
     public GameObject udphandler;
 
@@ -22,74 +27,55 @@ public class AlphabetGame2 : MonoBehaviour
 
     //Pause Menu
     [SerializeField] private GameObject pauseMenu;
-    bool isPauseActive;
-    private void DataHandle()
-    {
-        data = uDPReceive.data;
-        // Remove the first and last character
-        data = data.Remove(0, 1);
-        data = data.Remove(data.Length - 1, 1);
-        points = data.Split(", ");
-        CharInput = points[0][1];
-        // print(points[0]+""+ points[1]); // Print the first point for debugging
-    }
+    private bool isPauseActive;
+
     void Start()
     {
         uDPReceive = udphandler.GetComponent<UDPReceive>();
         data = uDPReceive.data;
 
         score = 0;
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
         UpdateScore();
-        StartCoroutine(SpawnLetter());
-        StartCoroutine(DelayPause());
+        UpdateHighScore();
+        StartCoroutine(InitialDelay());
         isPauseActive = false;
     }
 
-    void Update()
+    IEnumerator InitialDelay()
     {
-        DataHandle();
-        Debug.Log(CharInput+""+currentLetter);
-        OnLetterKeyPressed(char.ToUpper(CharInput));
-        pauseMenu.SetActive(isPauseActive);
+        yield return new WaitForSeconds(5f); // Delay 5 detik pada awal mulai
+        StartCoroutine(Countdown());
+        StartCoroutine(SpawnLetter());
     }
-    IEnumerator DelayPause()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(1f);
-            if(points[1] == "True")
-            {   
-                isPauseActive = !isPauseActive;
-            }
 
+    IEnumerator Countdown()
+    {
+        spawnIntervalText.gameObject.SetActive(true);
+        for (int i = 120; i > 0; i--)
+        {
+            spawnIntervalText.text = "Time: " + i;
+            yield return new WaitForSeconds(1f);
         }
+        spawnIntervalText.gameObject.SetActive(false);
+        resultText.gameObject.SetActive(true);
+        resultText.text = "Score Akhir: " + score;
+        letterRateText.gameObject.SetActive(true);
+        letterRateText.text = "Letter/second: " + (correctLetters / 120f).ToString("F2");
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
+
     IEnumerator SpawnLetter()
     {
         while(true)
         {
-            spawnIntervalText.gameObject.SetActive(true);
-            
-            spawnIntervalText.text = "Waktu = 5";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Waktu = 4";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Waktu = 3";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Waktu = 2";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.text = "Waktu = 1";
-            yield return new WaitForSeconds(wait);
-            spawnIntervalText.gameObject.SetActive(false);
-            
-
             canScore = true; // Reset scoring ability for the new letter
             currentLetter = (char)('A' + Random.Range(0, 26));
             letterText.text = currentLetter.ToString();
             letterText.color = Color.white;
+            yield return new WaitUntil(() => !canScore);
         }
-
-
     }
 
     void OnLetterKeyPressed(char letter)
@@ -99,6 +85,7 @@ public class AlphabetGame2 : MonoBehaviour
             if (letter == currentLetter)
             {
                 score++;
+                correctLetters++;
                 letterText.color = Color.green;
                 UpdateScore();
                 canScore = false; // Disable scoring until the next letter is spawned
@@ -108,6 +95,26 @@ public class AlphabetGame2 : MonoBehaviour
 
     void UpdateScore()
     {
-        scoreText.text = "Nilai: " + score;
+        scoreText.text = "Score: " + score;
+    }
+
+    void UpdateHighScore()
+    {
+        highScoreText.text = "High Score: " + highScore;
+    }
+
+    void HighScore()
+    {
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
+            UpdateHighScore();
+        }
+    }
+
+    void OnDestroy()
+    {
+        HighScore();
     }
 }
