@@ -1,8 +1,5 @@
 using System.Collections;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using TMPro;
-using Unity.VisualScripting;
 
 public class Player1Controller : MonoBehaviour
 {

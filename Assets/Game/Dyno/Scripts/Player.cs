@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
     public float jumpForce = 8f;
     public float gravity = 9.81f * 2f;
 
+    public AudioClip jumpSfx;
+    public AudioSource audioSource;
+
     //DataHandle
     UDPReceive uDPReceive;
     string data;
@@ -17,6 +21,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         uDPReceive = GetComponent<UDPReceive>();
         data = uDPReceive.data;
         character = GetComponent<CharacterController>();
@@ -46,6 +51,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) || points[1] == "True") {
                 direction = Vector3.up * jumpForce;
+                StartCoroutine(PlayJumpSfx());
             }
         }
 
@@ -59,5 +65,9 @@ public class Player : MonoBehaviour
             GameManager.Instance.GameOver();
         }
     }
-
+    IEnumerator PlayJumpSfx()
+    {
+        audioSource.PlayOneShot(jumpSfx);
+        yield return new WaitForSeconds(1f);
+    }
 }
