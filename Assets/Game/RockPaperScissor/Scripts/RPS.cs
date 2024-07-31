@@ -54,7 +54,6 @@ public class RPS : MonoBehaviour
     }
     void Start()
     {
-        isPauseActive = false;
         uDPReceive = GetComponent<UDPReceive>();
         com = Random.Range(0, 3);
         if (com == 0)
