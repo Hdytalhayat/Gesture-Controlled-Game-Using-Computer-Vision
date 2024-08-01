@@ -19,7 +19,6 @@ public class AlphabetGame2 : MonoBehaviour
     private bool canScore; // Flag to indicate if scoring is allowed
     public GameObject udphandler;
 
-    float wait = 1f;
     UDPReceive uDPReceive;
     string data;
     string[] points;

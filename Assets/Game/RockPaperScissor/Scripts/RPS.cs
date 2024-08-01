@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,15 +23,16 @@ public class RPS : MonoBehaviour
 
     // UI Text to display the result, countdown, and score
     public TextMeshProUGUI resultText, countdownText, playerScoreText, comScoreText;
+    public TextMeshProUGUI winnerText, finalScoreText, winRateText, totalRoundText;
 
     // Timer to spawn new choices every 5 seconds
     private float timer = 5f;
     // Score
     private int playerScore = 0;
     private int comScore = 0;
+    private int totalRounds = 0;
     private bool canScore = false;
     private bool inputed = false;
-
 
     UDPReceive uDPReceive;
     string data;
@@ -52,6 +51,7 @@ public class RPS : MonoBehaviour
         points = data.Split(", ");
         // print(points[0]+""+ points[1]); // Print the first point for debugging
     }
+
     void Start()
     {
         uDPReceive = GetComponent<UDPReceive>();
@@ -72,13 +72,12 @@ public class RPS : MonoBehaviour
         comScoreText.text = comScore.ToString();
         isPauseActive = false;
         StartCoroutine(DelayPause());
-
     }
 
     void Update()
     {
         DataHandle();
-        if(!isPauseActive)
+        if (!isPauseActive)
         {
             comImg.sprite = rps[Random.Range(0, 3)];
             timer -= Time.deltaTime;
@@ -92,7 +91,7 @@ public class RPS : MonoBehaviour
             comImg.sprite = rps[com];
             if (canScore && !inputed)
             {
-                if (points[5]=="'Rock'")
+                if (points[5] == "'Rock'")
                 {
                     player = 0;
                     playerChoice = Choice.Rock;
@@ -100,16 +99,15 @@ public class RPS : MonoBehaviour
                     inputed = true;
                     DetermineWinner(playerChoice, opponentChoice);
                 }
-                else if (points[5]=="'Paper'")
+                else if (points[5] == "'Paper'")
                 {
                     player = 1;
                     playerChoice = Choice.Paper;
                     playerImage.sprite = rps[1];
                     inputed = true;
                     DetermineWinner(playerChoice, opponentChoice);
-
                 }
-                else if (points[5]=="'Scissor'")
+                else if (points[5] == "'Scissor'")
                 {
                     player = 2;
                     playerChoice = Choice.Scissors;
@@ -124,20 +122,29 @@ public class RPS : MonoBehaviour
         {
             resultText.text = "Tunggu";
         }
+
+        if (comScore == 10 || playerScore == 10)
+        {
+            isPauseActive = true;
+            DisplayEndResults();
+        }
+
         pauseMenu.SetActive(isPauseActive);
     }
+
+
     IEnumerator DelayPause()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(1f);
-            if(points[1] == "True")
-            {   
+            if (points[1] == "True")
+            {
                 isPauseActive = !isPauseActive;
             }
-
         }
     }
+
     void StartImage()
     {
         timer = 5f;
@@ -161,25 +168,46 @@ public class RPS : MonoBehaviour
         }
         inputed = false;
     }
+
     public void DetermineWinner(Choice playerChoice, Choice opponentChoice)
     {
+        totalRounds++;
         if (playerChoice == opponentChoice)
         {
-            resultText.text = "Seimbang!";
+            resultText.text = "Draw!";
         }
         else if ((playerChoice == Choice.Rock && opponentChoice == Choice.Scissors) ||
                  (playerChoice == Choice.Paper && opponentChoice == Choice.Rock) ||
                  (playerChoice == Choice.Scissors && opponentChoice == Choice.Paper))
         {
             playerScore += 1;
-            resultText.text = "Player Menang!";
+            resultText.text = "Player Win!";
         }
         else
         {
             comScore += 1;
-            resultText.text = "Lawan menang!";
+            resultText.text = "Computer Win!";
         }
         playerScoreText.text = playerScore.ToString();
         comScoreText.text = comScore.ToString();
+    }
+
+    private void DisplayEndResults()
+    {
+        Debug.Log("END");
+        pauseMenu.SetActive(isPauseActive);
+
+        if (playerScore == 10)
+        {
+            winnerText.text = "You Win!";
+        }
+        else
+        {
+            winnerText.text = "You Lose!";
+        }
+
+        finalScoreText.text = $"Computer: {comScore} \t Player: {playerScore}";
+        winRateText.text = $"Win Rate: {(float)playerScore / totalRounds * 100}%";
+        totalRoundText.text = $"Total Rounds: {totalRounds}";
     }
 }
