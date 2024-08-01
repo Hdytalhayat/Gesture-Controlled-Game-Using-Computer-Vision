@@ -184,6 +184,11 @@ public class ScrollController : MonoBehaviour
         SceneManager.LoadScene("RPS");
 
     }     
+    public void ToQuiz()
+    {
+        SceneManager.LoadScene("Quizz");
+
+    }   
     public void ToAbout()
     {
         SceneManager.LoadScene("AboutUs");

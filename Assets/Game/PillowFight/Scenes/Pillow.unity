@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   player2Controller: {fileID: 2106180151}
+  pipe: {fileID: 303365775}
   hitDelay: 0.2
   hitInterval: 1
   notFound: {fileID: 1638574069}
@@ -259,7 +260,6 @@ MonoBehaviour:
   isActive: 0
   pauseMenu: {fileID: 651913254}
   canMove: 0
-  tutorialController: {fileID: 1541817301}
 --- !u!61 &63257894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2199,6 +2199,10 @@ PrefabInstance:
       propertyPath: udp
       value: 
       objectReference: {fileID: 2041276322}
+    - target: {fileID: 187855144822899305, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
+      propertyPath: IsTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 504663193680608613, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -153.29999
@@ -2213,7 +2217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 911243750582670266, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
       propertyPath: m_text
-      value: Menjulur tangan kedepan dan telapak tangan dikepalkan
+      value: Pukul dengan Menjulur tangan kedepan dan telapak tangan dikepalkan
       objectReference: {fileID: 0}
     - target: {fileID: 911243750582670266, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
       propertyPath: m_margin.x
@@ -2338,17 +2342,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4554132139697125295, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
   m_PrefabInstance: {fileID: 1541817299}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1541817301 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 187855144822899305, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
-  m_PrefabInstance: {fileID: 1541817299}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b855e23bde6b1fe49af5e3b0ba3ac8bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1636442915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,6 +2707,134 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1999408602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999408604}
+  - component: {fileID: 1999408603}
+  m_Layer: 0
+  m_Name: Backsound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1999408603
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999408602}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f02d2f388dcf74f4d9d3aee17178d93b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.487
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1999408604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999408602}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 958.82324, y: 655.8391, z: 336.7869}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022041756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,7 +3037,7 @@ MonoBehaviour:
   port: 1209
   startReceiving: 1
   printToConsole: 0
-  data: 
+  data: '['''', False, (0, 0), 0, '''', '''', '''', 0, '''']'
 --- !u!4 &2041276324
 Transform:
   m_ObjectHideFlags: 0
@@ -3065,7 +3186,6 @@ MonoBehaviour:
   healthBar: {fileID: 930360602}
   udp: {fileID: 2041276322}
   isActive: 0
-  tutorialController: {fileID: 1541817301}
 --- !u!61 &2106180156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3267,3 +3387,4 @@ SceneRoots:
   - {fileID: 2106180154}
   - {fileID: 1048743829}
   - {fileID: 2041276324}
+  - {fileID: 1999408604}

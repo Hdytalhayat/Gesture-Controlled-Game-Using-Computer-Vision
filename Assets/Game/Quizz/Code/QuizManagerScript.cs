@@ -79,7 +79,7 @@ public class QuizManagerScript : MonoBehaviour
         }
         else
         {
-            Invoke("ShowMenu", 2f);
+            Invoke("ShowMenu", 6f);
             questionText.text = "Quiz selesai!";
             resultText.text = "Skor akhir Anda: " + score + " dari " + quizData.questions.Count;
             EnableButtons(false);  // Ganti ini
