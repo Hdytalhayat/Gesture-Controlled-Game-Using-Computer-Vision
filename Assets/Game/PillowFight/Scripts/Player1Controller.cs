@@ -159,7 +159,7 @@ public class Player1Controller : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(1f);
-            if(points[1] == "True")
+            if(points[9] == "'pause'")
             {   
                 isPauseActive = !isPauseActive;
             }

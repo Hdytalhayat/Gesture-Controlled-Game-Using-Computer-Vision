@@ -14,6 +14,41 @@
       "question": "Apa singkatan dari HTTP dalam istilah teknologi web?",
       "options": ["HyperText Transfer Protocol", "HyperText Transmission Protocol"],
       "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama inovasi teknologi yang digunakan untuk mengidentifikasi jari tangan?",
+      "options": ["Biometri", "Kamera 3D"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa pendiri Microsoft?",
+      "options": ["Steve Jobs", "Bill Gates"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama protokol yang digunakan untuk mengamankan komunikasi internet?",
+      "options": ["HTTPS", "FTP"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'cloud computing'?",
+      "options": ["Penyimpanan data di server lokal", "Penyimpanan data di server internet"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Teknologi apa yang mendasari smartphone modern?",
+      "options": ["5G", "4G"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan komputer untuk belajar dari data tanpa diprogram secara eksplisit?",
+      "options": ["Kecerdasan Buatan", "Machine Learning"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa yang menciptakan World Wide Web?",
+      "options": ["Tim Berners-Lee", "Vint Cerf"],
+      "correctAnswer": 0
     }
   ]
 }

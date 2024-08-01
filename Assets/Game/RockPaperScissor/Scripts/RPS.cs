@@ -76,6 +76,10 @@ public class RPS : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            playerScore ++;
+        }
         DataHandle();
         if (!isPauseActive)
         {

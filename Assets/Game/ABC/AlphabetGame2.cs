@@ -144,7 +144,7 @@ public class AlphabetGame2 : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(1f);
-            if(points[1] == "True")
+            if(points[9] == "'pause'")
             {   
                 isPauseActive = !isPauseActive;
             }
