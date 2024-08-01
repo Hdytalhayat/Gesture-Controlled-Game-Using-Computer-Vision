@@ -499,26 +499,6 @@
       "question": "Apa yang dimaksud dengan 'user interface' (UI) dalam pengembangan perangkat lunak?",
       "options": ["Desain tampilan dan interaksi pengguna dengan perangkat lunak", "Arsitektur perangkat keras komputer"],
       "correctAnswer": 0
-    },
-    {
-      "question": "Apa nama bahasa pemrograman yang diciptakan oleh Guido van Rossum?",
-      "options": ["Python", "Ruby"],
-      "correctAnswer": 0
-    },
-    {
-      "question": "Apa nama perangkat lunak yang digunakan untuk mengelola dan membuat grafik statistik?",
-      "options": ["Spreadsheet", "Database"],
-      "correctAnswer": 0
-    },
-    {
-      "question": "Apa nama teknologi yang memungkinkan komunikasi antara perangkat menggunakan gelombang radio pada jarak dekat?",
-      "options": ["NFC", "Infrared"],
-      "correctAnswer": 0
-    },
-    {
-      "question": "Apa nama teknologi yang digunakan untuk mengelola versi kode sumber dalam pengembangan perangkat lunak?",
-      "options": ["Version Control System", "Task Management System"],
-      "correctAnswer": 0
     }
   ]
 }
