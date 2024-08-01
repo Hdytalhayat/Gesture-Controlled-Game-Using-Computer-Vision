@@ -36,6 +36,8 @@ public class Player2Controller : MonoBehaviour
     }
     void Start()
     {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
         uDPReceive = udp.GetComponent<UDPReceive>();
         currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
@@ -46,6 +48,7 @@ public class Player2Controller : MonoBehaviour
 
     void Update()
     {
+
         DataHandle();
         if (int.Parse(points[4]) == 0)
         {

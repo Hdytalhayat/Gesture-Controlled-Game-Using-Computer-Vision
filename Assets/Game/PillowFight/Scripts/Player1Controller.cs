@@ -5,36 +5,33 @@ public class Player1Controller : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] private GameObject player2Controller;
-
+    [SerializeField] private SpriteRenderer pipe;
+    public float hitDelay = 0.1f;
+    public float hitInterval = 1.0f;
     public GameObject notFound;
-
-    // healths
 
     public int maxHealth = 100;
 	public int currentHealth;
-
-	public HealthBar healthBar;
     private bool isDead = false;
 
-
-    // Timers
-    public float hitDelay = 0.1f;
-    public float hitInterval = 1.0f;
+	public HealthBar healthBar;
 
     private bool canHit = true;
+
     Rigidbody2D rb2d;
+
     public GameObject udp;
     UDPReceive uDPReceive;
     string data;
     string[] points;
 
     public bool isActive = false;
-    
-    //Pause Menu
+
     [SerializeField] private GameObject pauseMenu;
     bool isPauseActive; 
-
     public bool canMove;
+
+
     private void DataHandle()
     {
         data = uDPReceive.data;
@@ -46,6 +43,8 @@ public class Player1Controller : MonoBehaviour
     }
     void Start()
     {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        pipe.enabled = false;
         uDPReceive = udp.GetComponent<UDPReceive>();
         currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
@@ -57,6 +56,13 @@ public class Player1Controller : MonoBehaviour
     void Update()
     {
         DataHandle();
+        if(points[9] == "'enter'")
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            player2Controller.GetComponent<SpriteRenderer>().enabled = true;
+            pipe.enabled = true;
+
+        }
         if (int.Parse(points[4]) == 0)
         {
             notFound.SetActive(true);

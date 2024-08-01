@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     private float score;
     public float Score => score;
 
+    public TutorialController tutorialController;
+    bool toggle = true;
+
     private void Awake()
     {
         if (Instance != null) {
@@ -43,8 +46,9 @@ public class GameManager : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         spawner = FindObjectOfType<Spawner>();
-
         NewGame();
+
+        
     }
 
     public void NewGame()
@@ -75,7 +79,7 @@ public class GameManager : MonoBehaviour
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         Menus.SetActive(true);
-
+        
         UpdateHiscore();
     }
 
