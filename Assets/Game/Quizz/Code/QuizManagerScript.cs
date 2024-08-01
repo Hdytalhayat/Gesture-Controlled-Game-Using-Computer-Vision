@@ -107,7 +107,7 @@ public class QuizManagerScript : MonoBehaviour
 
         UpdateScoreDisplay();
         currentQuestionIndex++;
-        StartCoroutine(NextQuestionWithDelay());  // Ganti ini
+        StartCoroutine(NextQuestionWithDelay()); 
     }
 
     void UpdateScoreDisplay()
@@ -143,6 +143,7 @@ public class QuizManagerScript : MonoBehaviour
             optionButtons[1].onClick.Invoke();
         }
     }
+
     private void DataHandle()
     {
         data = uDPReceive.data;

@@ -1,14 +1,504 @@
 {
-    "questions": [
-      {
-        "question": "Ibu kota Indonesia adalah...",
-        "options": ["Jakarta", "Surabaya"],
-        "correctAnswer": 0
-      },
-      {
-        "question": "Benua terbesar di dunia adalah...",
-        "options": ["Afrika", "Asia"],
-        "correctAnswer": 1
-      }
-    ]
-  }
+  "questions": [
+    {
+      "question": "Siapa yang dianggap sebagai 'Bapak Komputer'?",
+      "options": ["Alan Turing", "Charles Babbage"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama sistem operasi yang pertama kali digunakan pada komputer pribadi IBM PC?",
+      "options": ["Windows", "MS-DOS"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa singkatan dari HTTP dalam istilah teknologi web?",
+      "options": ["HyperText Transfer Protocol", "HyperText Transmission Protocol"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama inovasi teknologi yang digunakan untuk mengidentifikasi jari tangan?",
+      "options": ["Biometri", "Kamera 3D"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa pendiri Microsoft?",
+      "options": ["Steve Jobs", "Bill Gates"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama protokol yang digunakan untuk mengamankan komunikasi internet?",
+      "options": ["HTTPS", "FTP"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'cloud computing'?",
+      "options": ["Penyimpanan data di server lokal", "Penyimpanan data di server internet"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Teknologi apa yang mendasari smartphone modern?",
+      "options": ["5G", "4G"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan komputer untuk belajar dari data tanpa diprogram secara eksplisit?",
+      "options": ["Kecerdasan Buatan", "Machine Learning"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa yang menciptakan World Wide Web?",
+      "options": ["Tim Berners-Lee", "Vint Cerf"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama dari teknologi yang digunakan untuk menghasilkan grafik tiga dimensi dalam video game?",
+      "options": ["Ray Tracing", "Vector Graphics"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa itu IoT dalam istilah teknologi?",
+      "options": ["Internet of Things", "Internet of Technology"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'blockchain'?",
+      "options": ["Teknologi database terpusat", "Teknologi database terdesentralisasi"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama perangkat yang digunakan untuk mendigitalkan suara manusia ke dalam bentuk digital?",
+      "options": ["Mikrofon", "Speaker"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa singkatan dari AI dalam dunia teknologi?",
+      "options": ["Artificial Intelligence", "Automated Intelligence"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan komunikasi langsung antara perangkat tanpa kabel?",
+      "options": ["Bluetooth", "Ethernet"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa yang menciptakan Apple Inc.?",
+      "options": ["Steve Jobs", "Steve Wozniak"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'virtual reality'?",
+      "options": ["Pengalaman digital yang disimulasikan", "Pengalaman dunia nyata"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama algoritma yang sering digunakan dalam enkripsi data?",
+      "options": ["AES", "MD5"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama sistem operasi open-source yang paling populer?",
+      "options": ["Windows", "Linux"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama penemu telepon?",
+      "options": ["Alexander Graham Bell", "Thomas Edison"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan pengguna untuk mengendalikan perangkat dengan gerakan mata?",
+      "options": ["Eye Tracking", "Gesture Control"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama protokol komunikasi yang digunakan dalam jaringan Wi-Fi?",
+      "options": ["IEEE 802.11", "IEEE 802.15"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'big data'?",
+      "options": ["Data dalam jumlah besar dan kompleks", "Data kecil dan terstruktur"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama perusahaan yang mengembangkan chip M1 untuk komputer Mac?",
+      "options": ["Intel", "Apple"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa yang dikenal sebagai pelopor teknologi pemrograman berbasis objek?",
+      "options": ["Bjarne Stroustrup", "James Gosling"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama protokol yang digunakan untuk mengirim email?",
+      "options": ["SMTP", "IMAP"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan penyimpanan data dalam bentuk molekul?",
+      "options": ["DNA Data Storage", "Quantum Storage"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama bahasa pemrograman yang dirancang khusus untuk web?",
+      "options": ["JavaScript", "Python"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'Augmented Reality' (AR)?",
+      "options": ["Menggabungkan dunia nyata dengan elemen digital", "Menciptakan dunia virtual sepenuhnya"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama platform media sosial yang diluncurkan pada tahun 2004?",
+      "options": ["Facebook", "Twitter"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan perangkat keras komputer untuk berbagi data secara aman di jaringan?",
+      "options": ["VPN", "Firewall"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa yang dikenal sebagai pencipta konsep World Wide Web?",
+      "options": ["Tim Berners-Lee", "Vint Cerf"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'quantum computing'?",
+      "options": ["Komputasi yang menggunakan prinsip fisika kuantum", "Komputasi berbasis transistor"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan untuk mengenali wajah dalam sistem keamanan?",
+      "options": ["Face Recognition", "Voice Recognition"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama perangkat yang digunakan untuk menyimpan dan mengambil data secara elektronik?",
+      "options": ["Hard Disk Drive", "Optical Drive"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan '5G' dalam konteks teknologi komunikasi?",
+      "options": ["Generasi kelima dari teknologi jaringan seluler", "Generasi pertama dari teknologi jaringan seluler"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama sistem yang digunakan untuk memonitor dan mengontrol jaringan komputer?",
+      "options": ["Network Management System", "Database Management System"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama perangkat keras yang digunakan untuk memproses dan mengirim data dari dan ke komputer?",
+      "options": ["Modem", "Router"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa yang menciptakan bahasa pemrograman Python?",
+      "options": ["Guido van Rossum", "Bjarne Stroustrup"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama aplikasi berbagi foto yang diluncurkan pada tahun 2010 dan diakuisisi oleh Facebook pada 2012?",
+      "options": ["Instagram", "Snapchat"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'virtual private network' (VPN)?",
+      "options": ["Jaringan yang mengenkripsi koneksi internet", "Jaringan yang menghubungkan beberapa perangkat secara langsung"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa yang dikenal sebagai penemu internet?",
+      "options": ["Vint Cerf", "Tim Berners-Lee"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama bahasa pemrograman yang diciptakan oleh James Gosling?",
+      "options": ["Java", "C++"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'data mining'?",
+      "options": ["Proses menganalisis data untuk menemukan pola", "Proses membuat database"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan untuk membuat 3D printer?",
+      "options": ["Additive Manufacturing", "Subtractive Manufacturing"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama sistem operasi mobile yang dikembangkan oleh Google?",
+      "options": ["iOS", "Android"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama perangkat keras yang digunakan untuk meningkatkan kualitas grafis pada komputer?",
+      "options": ["GPU", "CPU"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'cybersecurity'?",
+      "options": ["Keamanan informasi di dunia maya", "Keamanan fisik perangkat komputer"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama sistem yang memungkinkan penggunaan perangkat komputer secara bersamaan dari jarak jauh?",
+      "options": ["Remote Desktop", "Virtual Machine"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan pembuatan transaksi digital secara aman dan transparan?",
+      "options": ["Blockchain", "Cryptocurrency"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan dalam sistem navigasi GPS?",
+      "options": ["Global Positioning System", "Geographic Positioning System"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama perangkat lunak yang digunakan untuk mengelola basis data?",
+      "options": ["Database Management System", "Spreadsheet Software"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa pendiri Tesla, Inc.?",
+      "options": ["Elon Musk", "Jeff Bezos"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan untuk mencetak objek tiga dimensi secara bertahap?",
+      "options": ["3D Printing", "Laser Cutting"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'machine learning'?",
+      "options": ["Kecerdasan buatan yang memungkinkan komputer belajar dari data", "Teknik pengolahan data manual"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama aplikasi chat yang dikembangkan oleh WhatsApp Inc. dan diakuisisi oleh Facebook?",
+      "options": ["WhatsApp", "Telegram"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama alat yang digunakan untuk memproses dan menyimpan data secara sementara?",
+      "options": ["RAM", "Hard Disk"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan perangkat untuk berfungsi dengan konektivitas jarak dekat?",
+      "options": ["NFC", "Bluetooth"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama sistem yang mengelola aliran informasi di dalam jaringan komputer?",
+      "options": ["Network Operating System", "Database Management System"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan untuk mengamankan komunikasi melalui email?",
+      "options": ["Encryption", "Compression"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama inovasi yang mengubah cara kita berinteraksi dengan teknologi secara langsung melalui tangan dan jari?",
+      "options": ["Gesture Recognition", "Voice Recognition"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama platform yang menyediakan layanan penyimpanan data dan perangkat lunak secara online?",
+      "options": ["Cloud Computing", "Local Storage"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama alat yang digunakan untuk menghubungkan perangkat ke internet melalui kabel?",
+      "options": ["Router", "Modem"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa yang dikenal sebagai penemu algoritma enkripsi RSA?",
+      "options": ["Whitfield Diffie", "Ron Rivest"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama sistem operasi yang dikembangkan oleh Apple untuk perangkat selulernya?",
+      "options": ["iOS", "Android"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan pembelajaran mesin secara otomatis berdasarkan pengalaman?",
+      "options": ["Artificial Intelligence", "Deep Learning"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'DevOps' dalam pengembangan perangkat lunak?",
+      "options": ["Integrasi pengembangan dan operasi", "Metode pengembangan perangkat lunak yang terpisah"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama perangkat keras yang digunakan untuk menyimpan data dalam format optik?",
+      "options": ["CD/DVD", "Flash Drive"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan komunikasi dua arah secara langsung melalui jaringan internet?",
+      "options": ["VoIP", "Email"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'agile methodology' dalam pengembangan perangkat lunak?",
+      "options": ["Metodologi pengembangan yang iteratif dan fleksibel", "Metodologi pengembangan yang berfokus pada perencanaan awal"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa pendiri Amazon Web Services (AWS)?",
+      "options": ["Jeff Bezos", "Andy Jassy"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama algoritma yang digunakan untuk mengoptimalkan pencarian di internet?",
+      "options": ["PageRank", "SHA-256"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama platform perangkat lunak yang memungkinkan pengembangan aplikasi berbasis web dengan cepat?",
+      "options": ["Ruby on Rails", "Angular"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama inovasi yang memungkinkan pemantauan kesehatan secara real-time menggunakan perangkat wearable?",
+      "options": ["Health Monitoring Systems", "Fitness Trackers"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama sistem yang digunakan untuk mengelola dan mengakses informasi di basis data?",
+      "options": ["Database Management System", "Content Management System"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan komunikasi antara perangkat tanpa menggunakan sinyal radio?",
+      "options": ["Infrared", "Bluetooth"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama bahasa pemrograman yang dirancang untuk pemrograman sistem dan aplikasi?",
+      "options": ["C", "JavaScript"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan untuk menghasilkan gambar atau video berkualitas tinggi dalam game?",
+      "options": ["Ray Tracing", "Rasterization"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'cyber attack'?",
+      "options": ["Serangan terhadap sistem komputer untuk mencuri data atau merusak sistem", "Serangan fisik terhadap perangkat keras komputer"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa yang menciptakan konsep 'Internet of Things' (IoT)?",
+      "options": ["Kevin Ashton", "Mark Zuckerberg"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan pengguna untuk berinteraksi dengan dunia digital melalui realitas campuran?",
+      "options": ["Mixed Reality", "Virtual Reality"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama protokol yang digunakan untuk mentransfer data antara server web dan browser?",
+      "options": ["HTTP", "FTP"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan pemrosesan data secara paralel di banyak komputer?",
+      "options": ["Distributed Computing", "Cloud Computing"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan pengenalan suara menjadi teks?",
+      "options": ["Speech Recognition", "Voice Synthesis"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama framework pengembangan aplikasi web yang dikembangkan oleh Google?",
+      "options": ["Angular", "React"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama sistem yang memungkinkan manajemen dan analisis data besar dalam skala besar?",
+      "options": ["Big Data", "Data Warehousing"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan untuk mengamankan data dengan mengacak informasi?",
+      "options": ["Encryption", "Compression"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa yang dikenal sebagai pelopor dalam pengembangan teknologi semikonduktor?",
+      "options": ["Robert Noyce", "Gordon Moore"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama perangkat keras yang memungkinkan pengguna untuk berinteraksi dengan komputer melalui input sentuhan?",
+      "options": ["Touchscreen", "Mouse"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan koneksi internet dengan menggunakan kabel serat optik?",
+      "options": ["Fiber Optic", "DSL"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama algoritma yang sering digunakan untuk kompresi file?",
+      "options": ["ZIP", "SHA-1"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama perangkat yang digunakan untuk mendeteksi dan menghilangkan kesalahan dalam program perangkat lunak?",
+      "options": ["Debugger", "Compiler"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'software as a service' (SaaS)?",
+      "options": ["Model penyampaian perangkat lunak melalui internet", "Model pengembangan perangkat lunak berbasis lokal"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang memungkinkan pemantauan suhu tubuh secara otomatis dan real-time?",
+      "options": ["Wearable Sensors", "Thermal Cameras"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama metode yang digunakan untuk mengidentifikasi dan melindungi data pribadi dari akses yang tidak sah?",
+      "options": ["Data Privacy", "Data Security"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama platform pengembangan perangkat lunak yang dikembangkan oleh Microsoft untuk aplikasi web dan desktop?",
+      "options": [".NET", "Java EE"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama teknologi yang digunakan untuk menyimpan data dalam format magnetik pada piringan?",
+      "options": ["Hard Disk Drive", "Solid State Drive"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama protokol yang digunakan untuk sinkronisasi dan transfer file antara perangkat?",
+      "options": ["FTP", "HTTP"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang dimaksud dengan 'user interface' (UI) dalam pengembangan perangkat lunak?",
+      "options": ["Desain tampilan dan interaksi pengguna dengan perangkat lunak", "Arsitektur perangkat keras komputer"],
+      "correctAnswer": 0
+    }
+  ]
+}
