@@ -11,7 +11,7 @@ public class Player2Controller : MonoBehaviour
 
      public int maxHealth = 100;
 	public int currentHealth;
-    private bool isDead = false;
+    public bool isDead = false;
 
 	public HealthBar healthBar;
 

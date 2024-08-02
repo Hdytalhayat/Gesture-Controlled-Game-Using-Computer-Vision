@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player1Controller : MonoBehaviour
@@ -12,7 +13,7 @@ public class Player1Controller : MonoBehaviour
 
     public int maxHealth = 100;
 	public int currentHealth;
-    private bool isDead = false;
+    public bool isDead = false;
 
 	public HealthBar healthBar;
 
@@ -27,11 +28,11 @@ public class Player1Controller : MonoBehaviour
 
     public bool isActive = false;
 
-    [SerializeField] private GameObject pauseMenu;
-    bool isPauseActive; 
+    // [SerializeField] private GameObject pauseMenu;
+    public bool isPauseActive; 
     public bool canMove;
 
-
+    public TutorialController tutorialController;
     private void DataHandle()
     {
         data = uDPReceive.data;
@@ -50,19 +51,13 @@ public class Player1Controller : MonoBehaviour
 		healthBar.SetMaxHealth(maxHealth);
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-        StartCoroutine(DelayPause());
     }
 
     void Update()
     {
         DataHandle();
-        if(points[9] == "'enter'")
-        {
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            player2Controller.GetComponent<SpriteRenderer>().enabled = true;
-            pipe.enabled = true;
-
-        }
+    
+        
         if (int.Parse(points[4]) == 0)
         {
             notFound.SetActive(true);
@@ -106,12 +101,21 @@ public class Player1Controller : MonoBehaviour
             }
 
         }
-        pauseMenu.SetActive(isPauseActive);
-        if(isPauseActive)
+        // pauseMenu.SetActive(isPauseActive);
+        if(isPauseActive || tutorialController.IsTutorial)
         {
-            canMove = !isPauseActive;
-        }else{
+            canMove = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            player2Controller.GetComponent<SpriteRenderer>().enabled = false;
+            pipe.enabled = false;
+        }
+        else if(!isPauseActive || !tutorialController.IsTutorial)
+        {
             canMove = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            player2Controller.GetComponent<SpriteRenderer>().enabled = true;
+            pipe.enabled = true;
+
         }
 
     }
@@ -154,16 +158,6 @@ public class Player1Controller : MonoBehaviour
             TakeDamage(10);
         }
     }
-    IEnumerator DelayPause()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(1f);
-            if(points[9] == "'pause'")
-            {   
-                isPauseActive = !isPauseActive;
-            }
+    
 
-        }
-    }
 }

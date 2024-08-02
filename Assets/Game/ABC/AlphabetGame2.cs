@@ -30,8 +30,11 @@ public class AlphabetGame2 : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip correctSfx;
+    public TutorialController tutorialController;
     void Start()
     {
+        StartCoroutine(DelayNewGame());
+        StartCoroutine(DelayPause());
         audioSource = GetComponent<AudioSource>();
         uDPReceive = udphandler.GetComponent<UDPReceive>();
         data = uDPReceive.data;
@@ -39,9 +42,7 @@ public class AlphabetGame2 : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         UpdateScore();
         UpdateHighScore();
-        StartCoroutine(InitialDelay());
         isPauseActive = false;
-        StartCoroutine(DelayPause());
     }
 
     private void DataHandle()
@@ -137,6 +138,10 @@ public class AlphabetGame2 : MonoBehaviour
     {
         DataHandle();
         Debug.Log(CharInput);
+        if(isPauseActive)
+        {
+            StartCoroutine(pauseMenu.GetComponent<MenusController>().DelayPause());
+        }
         pauseMenu.SetActive(isPauseActive);
     }
     IEnumerator DelayPause()
@@ -150,6 +155,20 @@ public class AlphabetGame2 : MonoBehaviour
             }
 
         }
+    }
+    IEnumerator DelayNewGame()
+    {
+        // Wait until the tutorial is not active
+        yield return new WaitUntil(() => !tutorialController.IsTutorial);
+
+        // Optional: Add a short delay after the tutorial ends
+        yield return new WaitForSeconds(2f);
+
+        // Start the game
+        StartCoroutine(SpawnLetter());
+        StartCoroutine(Countdown());
+
+        Debug.Log("Game started after tutorial");
     }
     
 }

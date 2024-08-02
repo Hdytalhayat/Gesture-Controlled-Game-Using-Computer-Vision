@@ -8,16 +8,19 @@ public class TutorialController : MonoBehaviour
     public Sprite tutorialSprite;
     public Image TutorialImg;
     public GameObject udp, tutorial;
-    public bool IsTutorial = true;
+    public bool IsTutorial;
 
     UDPReceive uDPReceive;
     string data;
     string[] points;
     
+    bool delay = true;
     void Start()
     {
+        IsTutorial = true;
         TutorialImg.sprite = tutorialSprite;
         uDPReceive = udp.GetComponent<UDPReceive>();
+        StartCoroutine(DelayTutor());
     }
     private void DataHandle()
     {
@@ -31,9 +34,15 @@ public class TutorialController : MonoBehaviour
     void  Update()
     {
         DataHandle();
-        if(points[9] == "'enter'")
+        if(points[9] == "'enter'" && !delay)
         {
+            IsTutorial =false;
             tutorial.SetActive(false);
         }
+    }
+    IEnumerator DelayTutor()
+    {
+        yield return new WaitForSeconds(3f);
+        delay = false;
     }
 }

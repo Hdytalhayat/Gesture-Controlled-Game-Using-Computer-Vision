@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -46,8 +47,8 @@ public class GameManager : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         spawner = FindObjectOfType<Spawner>();
-        NewGame();
-
+        StartCoroutine(DelayNewGame());
+        // NewGame();
         
     }
 
@@ -78,6 +79,8 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
+        StartCoroutine(Menus.GetComponent<MenusController>().DelayPause());
+
         Menus.SetActive(true);
         
         UpdateHiscore();
@@ -101,5 +104,10 @@ public class GameManager : MonoBehaviour
         }
 
         hiscoreText.text = Mathf.FloorToInt(hiscore).ToString("D5");
+    }
+    IEnumerator DelayNewGame()
+    {
+        yield return new WaitUntil(()=>!tutorialController.IsTutorial);
+        NewGame();
     }
 }

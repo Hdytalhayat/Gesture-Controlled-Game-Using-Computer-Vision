@@ -14,9 +14,10 @@ public class MenusController : MonoBehaviour
     UDPReceive uDPReceive;
     string data;
     string[] points;
-
+    public bool isPauseDelay;
     public void Start()
-    {
+    {    
+        isPauseDelay = true;
         uDPReceive = udp.GetComponent<UDPReceive>();
         retryButton.onClick.AddListener(OnClickRetry);
         homeButton.onClick.AddListener(OnClickHome);
@@ -24,15 +25,19 @@ public class MenusController : MonoBehaviour
     public void Update()
     {
         DataHandle();
+        if(!isPauseDelay)
+        {
+            if (points[9] == "'left'")
+            {
+                OnClickRetry();
+            }
+            else if(points[9] == "'right'")
+            {
+                OnClickHome();
+            }
 
-        if (points[9] == "'left'")
-        {
-            OnClickRetry();
         }
-        else if(points[9] == "'right'")
-        {
-            OnClickHome();
-        }
+        
     }
 
     private void DataHandle()
@@ -55,5 +60,10 @@ public class MenusController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
+    public IEnumerator DelayPause()
+    {
+        yield return new WaitForSeconds(3f);
+        isPauseDelay = false;
+    }
+    
 }

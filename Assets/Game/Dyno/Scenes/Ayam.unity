@@ -1724,6 +1724,10 @@ PrefabInstance:
       propertyPath: udp
       value: 
       objectReference: {fileID: 148270}
+    - target: {fileID: 187855144822899305, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
+      propertyPath: IsTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4554132139697125295, guid: 3e8c875e6c7bb3143b594101ad645969, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

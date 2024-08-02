@@ -41,7 +41,7 @@ public class RPS : MonoBehaviour
     //Pause Menu
     [SerializeField] private GameObject pauseMenu;
     bool isPauseActive;
-
+    public TutorialController tutorialController;
     private void DataHandle()
     {
         data = uDPReceive.data;
@@ -81,10 +81,14 @@ public class RPS : MonoBehaviour
             playerScore ++;
         }
         DataHandle();
-        if (!isPauseActive)
+        if (!isPauseActive || !tutorialController.IsTutorial)
         {
             comImg.sprite = rps[Random.Range(0, 3)];
             timer -= Time.deltaTime;
+        }
+        if(isPauseActive)
+        {
+            StartCoroutine(pauseMenu.GetComponent<MenusController>().DelayPause());
         }
         // Countdown timer
         countdownText.text = Mathf.Ceil(timer).ToString();
@@ -139,13 +143,14 @@ public class RPS : MonoBehaviour
 
     IEnumerator DelayPause()
     {
-        while (true)
+        while(true)
         {
             yield return new WaitForSeconds(1f);
-            if (points[1] == "True")
-            {
+            if(points[9] == "'pause'")
+            {   
                 isPauseActive = !isPauseActive;
             }
+
         }
     }
 
@@ -214,4 +219,5 @@ public class RPS : MonoBehaviour
         winRateText.text = $"Win Rate: {(float)playerScore / totalRounds * 100}%";
         totalRoundText.text = $"Total Rounds: {totalRounds}";
     }
+    
 }
