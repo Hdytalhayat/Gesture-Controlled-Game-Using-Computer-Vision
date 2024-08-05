@@ -21,6 +21,7 @@ public class QuizData
 
 public class QuizManagerScript : MonoBehaviour
 {
+    bool isPauseActive;
     public GameObject menus;
     public TextMeshProUGUI questionText;
     public Button[] optionButtons;
@@ -49,6 +50,7 @@ public class QuizManagerScript : MonoBehaviour
         LoadQuizData();
         ShowQuestion();
         UpdateScoreDisplay();
+        StartCoroutine(DelayPause());
     }
 
     void LoadQuizData()
@@ -142,6 +144,11 @@ public class QuizManagerScript : MonoBehaviour
         {
             optionButtons[1].onClick.Invoke();
         }
+        if(isPauseActive)
+        {
+            StartCoroutine(menus.GetComponent<MenusController>().DelayPause());
+        }
+        menus.SetActive(isPauseActive);
     }
 
     private void DataHandle()
@@ -156,5 +163,17 @@ public class QuizManagerScript : MonoBehaviour
     void ShowMenu()
     {
         menus.SetActive(true);
+    }
+    IEnumerator DelayPause()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1f);
+            if(points[9] == "'pause'")
+            {   
+                isPauseActive = !isPauseActive;
+            }
+
+        }
     }
 }
