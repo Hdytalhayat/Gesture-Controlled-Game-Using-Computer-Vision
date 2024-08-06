@@ -10,12 +10,12 @@ public class GameManagerHUD : MonoBehaviour
     [SerializeField]private Animator animator;
     [SerializeField]private float transitionTime = 1f;
     [SerializeField]private int indexs = 0;
-    [SerializeField]private string[] textOpenings = {"Welcome", "DLI Present", "NAMA GAME"};
+    [SerializeField]private string[] textOpenings = {"Tengtang Kami", "DLI Present", "NAMA GAME"};
     [SerializeField]private int counter = 0;
     private void Start()
     {
         animator = textOpening.gameObject.GetComponent<Animator>();
-        textOpening.text = textOpenings[indexs];
+        //textOpening.text = textOpenings[indexs];
     }
     private void Update()
     {
@@ -34,7 +34,7 @@ public class GameManagerHUD : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         if(indexs < textOpenings.Length)
         {
-            textOpening.text = textOpenings[indexs];
+            //textOpening.text = textOpenings[indexs];
         }
         else
         {

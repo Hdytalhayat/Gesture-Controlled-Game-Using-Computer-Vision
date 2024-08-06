@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,7 +445,7 @@ MonoBehaviour:
   _audioLists:
   - {fileID: 8300000, guid: 84e3b167c3e6906429b042bc7af929d1, type: 3}
   - {fileID: 8300000, guid: 261226fd403328c418f295ff26878eb8, type: 3}
-  - {fileID: 8300000, guid: 9af52d92ce02e5f47a5003fd8f55c2b6, type: 3}
+  - {fileID: 8300000, guid: e9ce7ee186e43f647b767a5e25db2e39, type: 3}
   onOpenEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3576,7 +3576,7 @@ MonoBehaviour:
   _audioLists:
   - {fileID: 8300000, guid: 84e3b167c3e6906429b042bc7af929d1, type: 3}
   - {fileID: 8300000, guid: 261226fd403328c418f295ff26878eb8, type: 3}
-  - {fileID: 8300000, guid: 9af52d92ce02e5f47a5003fd8f55c2b6, type: 3}
+  - {fileID: 8300000, guid: e9ce7ee186e43f647b767a5e25db2e39, type: 3}
   onOpenEvent:
     m_PersistentCalls:
       m_Calls: []
