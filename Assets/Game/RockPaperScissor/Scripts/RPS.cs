@@ -131,7 +131,7 @@ public class RPS : MonoBehaviour
             resultText.text = "Tunggu";
         }
 
-        if (comScore == 10 || playerScore == 10)
+        if (comScore == 5 || playerScore == 5)
         {
             isPauseActive = true;
             DisplayEndResults();
@@ -206,7 +206,7 @@ public class RPS : MonoBehaviour
         Debug.Log("END");
         pauseMenu.SetActive(isPauseActive);
 
-        if (playerScore == 10)
+        if (playerScore == 5)
         {
             winnerText.text = "You Win!";
         }

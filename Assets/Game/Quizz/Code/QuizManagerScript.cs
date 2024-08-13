@@ -41,6 +41,7 @@ public class QuizManagerScript : MonoBehaviour
     UDPReceive uDPReceive;
     string data;
     string[] points;
+    bool canans = true;
 
     void Start()
     {
@@ -48,6 +49,7 @@ public class QuizManagerScript : MonoBehaviour
         uDPReceive = udp.GetComponent<UDPReceive>();
         data = uDPReceive.data;
         LoadQuizData();
+        ShuffleQuestions();  // Acak pertanyaan sebelum ditampilkan
         ShowQuestion();
         UpdateScoreDisplay();
         StartCoroutine(DelayPause());
@@ -58,6 +60,24 @@ public class QuizManagerScript : MonoBehaviour
         string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "quiz_questions.json");
         string jsonContent = File.ReadAllText(jsonFilePath);
         quizData = JsonUtility.FromJson<QuizData>(jsonContent);
+    }
+
+    void ShuffleQuestions()
+    {
+        // Acak pertanyaan
+        for (int i = 0; i < quizData.questions.Count; i++)
+        {
+            Question temp = quizData.questions[i];
+            int randomIndex = Random.Range(i, quizData.questions.Count);
+            quizData.questions[i] = quizData.questions[randomIndex];
+            quizData.questions[randomIndex] = temp;
+        }
+
+        // Ambil hanya 10 pertanyaan pertama setelah diacak
+        if (quizData.questions.Count > 10)
+        {
+            quizData.questions = quizData.questions.GetRange(0, 10);
+        }
     }
 
     void ShowQuestion()
@@ -100,11 +120,13 @@ public class QuizManagerScript : MonoBehaviour
             resultText.text = "Benar!";
             score++;
             audioSource.PlayOneShot(correctSound);
+            StartCoroutine(AnsDelay());
         }
         else
         {
             resultText.text = "Salah. Jawaban yang benar: " + currentQuestion.options[currentQuestion.correctAnswer];
             audioSource.PlayOneShot(wrongSound);
+            StartCoroutine(AnsDelay());
         }
 
         UpdateScoreDisplay();
@@ -112,12 +134,17 @@ public class QuizManagerScript : MonoBehaviour
         StartCoroutine(NextQuestionWithDelay()); 
     }
 
+    IEnumerator AnsDelay()
+    {
+        yield return new WaitForSeconds(5f);
+        canans = true;
+    }
+
     void UpdateScoreDisplay()
     {
         scoreText.text = "Skor: " + score + " / " + quizData.questions.Count;
     }
 
-    // Tambahkan metode ini
     void EnableButtons(bool enable)
     {
         foreach (Button button in optionButtons)
@@ -126,22 +153,25 @@ public class QuizManagerScript : MonoBehaviour
         }
     }
 
-    // Tambahkan metode ini
     IEnumerator NextQuestionWithDelay()
     {
         yield return new WaitForSeconds(2f);
         ShowQuestion();
     }
+
     void Update()
     {
         DataHandle();
 
-        if(points[9] == "'left'" || Input.GetKeyDown(KeyCode.A))
+        if((points[9] == "'left'" || Input.GetKeyDown(KeyCode.A)) && canans)
         {
+            canans = false;
             optionButtons[0].onClick.Invoke();
         }
-        else if(points[9] == "'right'" || Input.GetKeyDown(KeyCode.D))
+        else if((points[9] == "'right'" || Input.GetKeyDown(KeyCode.D))&&canans)
         {
+            canans = false;
+
             optionButtons[1].onClick.Invoke();
         }
         if(isPauseActive)
@@ -160,10 +190,12 @@ public class QuizManagerScript : MonoBehaviour
         points = data.Split(", ");
         // print(points[0]+""+ points[1]); // Print the first point for debugging
     }
+
     void ShowMenu()
     {
         menus.SetActive(true);
     }
+
     IEnumerator DelayPause()
     {
         while(true)

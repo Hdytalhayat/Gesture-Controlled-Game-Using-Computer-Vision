@@ -58,7 +58,7 @@ public class MenusController : MonoBehaviour
     }
     public void OnClickHome()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu 1");
     }
     public IEnumerator DelayPause()
     {

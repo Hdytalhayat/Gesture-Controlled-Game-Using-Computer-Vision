@@ -8,16 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/HandDetector.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/HUD/MainMenu.unity
     guid: a6e801c887de1714c982b2168f5c34be
   - enabled: 1
+    path: Assets/HUD/MainMenu 1.unity
+    guid: 71acf13e5dac3f548b557bec32568ba8
+  - enabled: 1
     path: Assets/HUD/AboutUs.unity
     guid: c5490668b4a3f304bb6a05113a151bda
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/PillowFight/Scenes/Pillow.unity
     guid: 993f62b58dca0c645be781104e6e6ce7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuUtama.unity
     guid: 94785d141ec0d64488f227ecbae850ae
   - enabled: 1

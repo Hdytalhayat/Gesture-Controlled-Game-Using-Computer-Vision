@@ -1,54 +1,154 @@
 {
   "questions": [
     {
-      "question": "Siapa yang dianggap sebagai 'Bapak Komputer'?",
-      "options": ["Alan Turing", "Charles Babbage"],
-      "correctAnswer": 1
-    },
-    {
-      "question": "Apa nama sistem operasi yang pertama kali digunakan pada komputer pribadi IBM PC?",
-      "options": ["Windows", "MS-DOS"],
-      "correctAnswer": 1
-    },
-    {
-      "question": "Apa singkatan dari HTTP dalam istilah teknologi web?",
-      "options": ["HyperText Transfer Protocol", "HyperText Transmission Protocol"],
+      "question": "Apa planet terdekat dengan Matahari?",
+      "options": ["Merkurius", "Venus"],
       "correctAnswer": 0
     },
     {
-      "question": "Apa nama inovasi teknologi yang digunakan untuk mengidentifikasi jari tangan?",
-      "options": ["Biometri", "Kamera 3D"],
-      "correctAnswer": 0
-    },
-    {
-      "question": "Siapa pendiri Microsoft?",
-      "options": ["Steve Jobs", "Bill Gates"],
+      "question": "Apa gas utama yang ditemukan dalam atmosfer Bumi?",
+      "options": ["Oksigen", "Nitrogen"],
       "correctAnswer": 1
     },
     {
-      "question": "Apa nama protokol yang digunakan untuk mengamankan komunikasi internet?",
-      "options": ["HTTPS", "FTP"],
-      "correctAnswer": 0
-    },
-    {
-      "question": "Apa yang dimaksud dengan 'cloud computing'?",
-      "options": ["Penyimpanan data di server lokal", "Penyimpanan data di server internet"],
+      "question": "Apa yang membuat benda jatuh ke tanah?",
+      "options": ["Magnetisme", "Gravitasi"],
       "correctAnswer": 1
     },
     {
-      "question": "Teknologi apa yang mendasari smartphone modern?",
-      "options": ["5G", "4G"],
+      "question": "Berapa jumlah planet dalam Tata Surya?",
+      "options": ["8", "9"],
       "correctAnswer": 0
     },
     {
-      "question": "Apa nama teknologi yang memungkinkan komputer untuk belajar dari data tanpa diprogram secara eksplisit?",
-      "options": ["Kecerdasan Buatan", "Machine Learning"],
+      "question": "Apa yang digunakan tumbuhan untuk membuat makanan?",
+      "options": ["Fotosintesis", "Respirasi"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa organ terbesar dalam tubuh manusia?",
+      "options": ["Hati", "Kulit"],
       "correctAnswer": 1
     },
     {
-      "question": "Siapa yang menciptakan World Wide Web?",
-      "options": ["Tim Berners-Lee", "Vint Cerf"],
+      "question": "Apa bentuk air yang membeku?",
+      "options": ["Uap", "Es"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa yang menyebabkan pelangi?",
+      "options": ["Pembiasan Cahaya", "Refleksi Cahaya"],
       "correctAnswer": 0
+    },
+    {
+      "question": "Di mana jantung manusia berada?",
+      "options": ["Dada", "Kepala"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa yang menyebabkan perubahan musim?",
+      "options": ["Rotasi Bumi", "Revolusi Bumi"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Berapa lama waktu yang dibutuhkan Bumi untuk mengelilingi Matahari?",
+      "options": ["365 hari", "24 jam"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa simbol kimia untuk air?",
+      "options": ["O2", "H2O"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa penemu bola lampu?",
+      "options": ["Thomas Edison", "Albert Einstein"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa alat untuk mengukur suhu?",
+      "options": ["Barometer", "Termometer"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa hewan tercepat di darat?",
+      "options": ["Cheetah", "Singa"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa unsur kimia yang paling melimpah di alam semesta?",
+      "options": ["Helium", "Hidrogen"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa hewan terbesar di dunia?",
+      "options": ["Gajah", "Paus Biru"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa ibukota Indonesia?",
+      "options": ["Jakarta", "Bali"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Siapa yang menulis lagu kebangsaan Indonesia?",
+      "options": ["WR Supratman", "Soekarno"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa warna bendera Indonesia?",
+      "options": ["Merah dan Putih", "Merah dan Kuning"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Berapa jumlah pulau di Indonesia?",
+      "options": ["13.000", "17.000"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama gunung tertinggi di Indonesia?",
+      "options": ["Gunung Rinjani", "Gunung Puncak Jaya"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa bahasa resmi di Indonesia?",
+      "options": ["Bahasa Inggris", "Bahasa Indonesia"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa presiden pertama Indonesia?",
+      "options": ["Soeharto", "Soekarno"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa nama pulau terbesar di Indonesia?",
+      "options": ["Kalimantan", "Sumatera"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama candi terkenal di Jawa Tengah?",
+      "options": ["Candi Prambanan", "Candi Borobudur"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa mata uang yang digunakan di Indonesia?",
+      "options": ["Rupiah", "Ringgit"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa julukan untuk pulau Bali?",
+      "options": ["Pulau Seribu Pura", "Pulau Dewata"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Siapa pahlawan nasional yang dikenal sebagai Ibu Kartini?",
+      "options": ["R.A. Kartini", "Cut Nyak Dien"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Apa nama tarian tradisional dari Bali?",
+      "options": ["Tari Saman", "Tari Kecak"],
+      "correctAnswer": 1
     }
   ]
 }

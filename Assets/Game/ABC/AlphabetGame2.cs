@@ -66,7 +66,7 @@ public class AlphabetGame2 : MonoBehaviour
     IEnumerator Countdown()
     {
         spawnIntervalText.gameObject.SetActive(true);
-        for (int i = 120; i > 0; i--)
+        for (int i = 60; i > 0; i--)
         {
             spawnIntervalText.text = "Time: " + i;
             yield return new WaitForSeconds(1f);
@@ -75,9 +75,8 @@ public class AlphabetGame2 : MonoBehaviour
         resultText.gameObject.SetActive(true);
         resultText.text = "Score Akhir: " + score;
         letterRateText.gameObject.SetActive(true);
-        letterRateText.text = "Letter/second: " + (correctLetters / 120).ToString("F2");
+        letterRateText.text = "Letter/second: " + (correctLetters / 60).ToString("F2");
         isPauseActive =true;
-        Time.timeScale = 0;
     }
 
     IEnumerator SpawnLetter()
@@ -88,7 +87,7 @@ public class AlphabetGame2 : MonoBehaviour
             currentLetter = (char)('A' + Random.Range(0, 26));
             letterText.text = currentLetter.ToString();
             letterText.color = Color.white;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(10f);
             // yield return new WaitUntil(() => !canScore);
         }
     }
@@ -149,7 +148,7 @@ public class AlphabetGame2 : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(1f);
-            if(points[9] == "'pause'")
+            if(points[5] == "'Paper'")
             {   
                 isPauseActive = !isPauseActive;
             }
